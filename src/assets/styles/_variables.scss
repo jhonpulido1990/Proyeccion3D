@@ -1,0 +1,46 @@
+$colors: (
+  primary: #4FB9A7,
+  secondary: #C2410C,
+  black1: #000000,
+  black2: #0B0D39,
+  black3:#1F2937,
+  green1: #D3E4DE,
+  green2: #21B836,
+  gray0:#CBD5E1,
+  gray1: #DBDBE6,
+  gray2: #DCDCE3,
+  gray3: #CFE2DB,
+  gray4: #707070,
+  gray5: #748F99,
+
+  gray6:#64748B,
+  gray7:#475569,
+  gray8:#94A3B8,
+  white1: #FFFFFF,
+  white2: #FEFEFE,
+  white3: #F2F2F2,
+  bg-gray1:#f1f5f9,
+  bg-gray2:#E2E8F0,
+);
+
+@function color($color-name) {
+  @return map-get($colors, $color-name);
+}
+
+$screen-big-desktop: 1440px;
+$screen-desktop: 1024px;
+$screen-tablet: 768px;
+
+$font-size-title: 5.125rem;
+$font-size-text: 1.25rem;
+$font-size-sm: 0.875rem;
+$font-size-ultra-sm: 0.75rem;
+
+$prime-mixins1: 992px;
+$prime-mixins2: 991px;
+$scale: 14px;
+$borderRadius: 12px;
+$transitionDuration: .2s;
+
+$padding-box: 0 24px;
+$margin-box: 0px;
