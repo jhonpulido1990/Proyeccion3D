@@ -1,0 +1,21 @@
+<nav class="navbar">
+  <div class="navbar-container">
+    <!-- Logo/Brand Molecule -->
+    <app-brand-logo text="IA Claude" />
+
+    <!-- Navigation Links -->
+    <app-navigation-menu [links]="navigationLinks" />
+
+    <!-- Mobile Menu Toggle -->
+    <app-mobile-toggle
+      (toggle)="isMobileMenuOpen = !isMobileMenuOpen"
+      [isOpen]="isMobileMenuOpen" />
+  </div>
+
+  <!-- Mobile Menu -->
+  <app-mobile-menu
+    [links]="navigationLinks"
+    [isOpen]="isMobileMenuOpen"
+    (linkClick)="closeMobileMenu()" />
+
+</nav>
