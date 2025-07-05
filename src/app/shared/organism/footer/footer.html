@@ -1,0 +1,39 @@
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-content">
+      <!-- Brand Section -->
+      <div class="footer-brand-section">
+        <app-footer-brand
+          title="Proyección3DBIC"
+          description="Transformando ideas en realidad a través de soluciones innovadoras de impresión 3D.">
+        </app-footer-brand>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-links-section">
+        <app-footer-section
+          [title]="quickLinks.title"
+          [links]="quickLinks.links">
+        </app-footer-section>
+      </div>
+
+      <!-- Services -->
+      <div class="footer-links-section">
+        <app-footer-section
+          [title]="services.title"
+          [links]="services.links">
+        </app-footer-section>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="footer-contact-section">
+        <app-footer-contact></app-footer-contact>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <app-footer-copyright
+      [legalLinks]="legalLinks">
+    </app-footer-copyright>
+  </div>
+</footer>

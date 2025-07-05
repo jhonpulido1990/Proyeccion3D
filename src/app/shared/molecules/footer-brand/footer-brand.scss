@@ -1,0 +1,26 @@
+@use '../../../../assets/styles/variables' as vars;
+@use '../../../../assets/styles/mixins' as mixins;
+
+.footer-brand {
+  .brand-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: vars.color('white1');
+    margin-bottom: vars.$spacing-md;
+    
+    .highlight {
+      color: vars.color('primary');
+    }
+  }
+
+  .brand-description {
+    color: vars.color('gray8');
+    line-height: 1.6;
+    margin-bottom: vars.$spacing-lg;
+    font-size: vars.$font-size-text-mobile;
+
+    @include mixins.tablet-up() {
+      font-size: vars.$font-size-text;
+    }
+  }
+}

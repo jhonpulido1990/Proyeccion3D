@@ -1,0 +1,63 @@
+@use '../../../../assets/styles/variables' as vars;
+@use '../../../../assets/styles/mixins' as mixins;
+
+.social-links {
+  display: flex;
+  gap: vars.$spacing-sm;
+  margin-top: vars.$spacing-md;
+
+  .social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: vars.$borderRadius;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: vars.color('gray8');
+    text-decoration: none;
+    transition: all vars.$transitionDuration vars.$transitionEasing;
+    border: 1px solid transparent;
+
+    &:hover {
+      background-color: vars.color('primary');
+      color: vars.color('white1');
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    // Colores específicos para cada red social
+    &[aria-label="Facebook"]:hover {
+      background-color: #1877f2;
+    }
+
+    &[aria-label="Twitter"]:hover {
+      background-color: #1da1f2;
+    }
+
+    &[aria-label="Instagram"]:hover {
+      background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    }
+
+    &[aria-label="LinkedIn"]:hover {
+      background-color: #0077b5;
+    }
+
+    &[aria-label="YouTube"]:hover {
+      background-color: #ff0000;
+    }
+
+    span {
+      font-size: 1.2rem;
+    }
+
+    @include mixins.mobile() {
+      width: 36px;
+      height: 36px;
+      
+      span {
+        font-size: 1rem;
+      }
+    }
+  }
+}
