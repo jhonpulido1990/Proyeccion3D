@@ -1,0 +1,41 @@
+@use '../../../../assets/styles/variables' as vars;
+@use '../../../../assets/styles/mixins' as mixins;
+
+.carousel-indicators {
+  // Mobile First
+  display: flex;
+  justify-content: center;
+  gap: vars.$spacing-sm;
+  margin-top: vars.$spacing-lg;
+
+  @include mixins.tablet-up() {
+    margin-top: vars.$spacing-xl;
+  }
+
+  // BEM Elements
+  &__dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    background-color: vars.color('gray2');
+    cursor: pointer;
+    transition: all vars.$transitionDuration vars.$transitionEasing;
+
+    @include mixins.tablet-up() {
+      width: 14px;
+      height: 14px;
+    }
+
+    &:hover {
+      background-color: vars.color('gray5');
+      transform: scale(1.2);
+    }
+
+    // BEM Modifier
+    &--active {
+      background-color: vars.color('primary');
+      transform: scale(1.3);
+    }
+  }
+}
