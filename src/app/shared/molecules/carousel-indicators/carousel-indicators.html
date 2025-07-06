@@ -1,0 +1,10 @@
+<div class="carousel-indicators">
+  @for (indicator of indicators; track indicator) {
+    <button
+      class="carousel-indicators__dot"
+      [class.carousel-indicators__dot--active]="indicator === current"
+      (click)="onIndicatorClick(indicator)"
+      [attr.aria-label]="'Ir al testimonio ' + (indicator + 1)">
+    </button>
+  }
+</div>
