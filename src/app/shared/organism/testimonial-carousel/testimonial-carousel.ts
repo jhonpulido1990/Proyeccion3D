@@ -1,13 +1,12 @@
 import { Component, OnInit, OnDestroy, AfterViewInit, ElementRef, HostListener } from '@angular/core';
 import { TestimonialCard } from '../../molecules/testimonial-card/testimonial-card';
-import { CarouselNavigation } from '../../molecules/carousel-navigation/carousel-navigation';
-import { CarouselIndicators } from '../../molecules/carousel-indicators/carousel-indicators';
 import { Testimonial } from '../../../core/models/interfaces/testimonial.interface';
+import { CarouselModule } from 'primeng/carousel';
 
 
 @Component({
   selector: 'app-testimonial-carousel',
-  imports: [TestimonialCard, CarouselNavigation, CarouselIndicators],
+  imports: [TestimonialCard, CarouselModule],
   templateUrl: './testimonial-carousel.html',
   styleUrl: './testimonial-carousel.scss'
 })
@@ -17,6 +16,9 @@ export class TestimonialCarousel implements OnInit, OnDestroy, AfterViewInit {
   autoplayDuration = 5000; // 5 segundos - CORREGIDO
   isTransitioning = false;
   isPaused = false;
+
+  responsiveOptions: any[] | undefined;
+
 
   testimonials: Testimonial[] = [
     {
@@ -42,10 +44,32 @@ export class TestimonialCarousel implements OnInit, OnDestroy, AfterViewInit {
     }
   ];
 
-  constructor(private elementRef: ElementRef) {}
+  constructor(private elementRef: ElementRef) { }
 
   ngOnInit(): void {
     this.startAutoplay();
+    this.responsiveOptions = [
+      {
+        breakpoint: '1400px',
+        numVisible: 1,
+        numScroll: 1
+      },
+      {
+        breakpoint: '1199px',
+        numVisible: 1,
+        numScroll: 1
+      },
+      {
+        breakpoint: '767px',
+        numVisible: 1,
+        numScroll: 1
+      },
+      {
+        breakpoint: '575px',
+        numVisible: 1,
+        numScroll: 1
+      }
+    ]
   }
 
   ngAfterViewInit(): void {
@@ -73,7 +97,7 @@ export class TestimonialCarousel implements OnInit, OnDestroy, AfterViewInit {
 
     this.isTransitioning = true;
     this.currentSlide = (this.currentSlide + 1) % this.testimonials.length;
-    
+
     // Reiniciar autoplay solo si no es automático
     if (this.isPaused) {
       this.resetAutoplay();
@@ -91,7 +115,7 @@ export class TestimonialCarousel implements OnInit, OnDestroy, AfterViewInit {
     this.currentSlide = this.currentSlide === 0
       ? this.testimonials.length - 1
       : this.currentSlide - 1;
-    
+
     if (this.isPaused) {
       this.resetAutoplay();
     }
@@ -141,4 +165,6 @@ export class TestimonialCarousel implements OnInit, OnDestroy, AfterViewInit {
     this.stopAutoplay();
     this.startAutoplay();
   }
+
+
 }

@@ -1,35 +1,29 @@
 <section class="testimonial-carousel">
   <div class="testimonial-carousel__container">
     <div class="testimonial-carousel__header">
-      <h2 class="testimonial-carousel__title">Lo Que Dicen Nuestros Clientes</h2>
+      <h2 class="testimonial-carousel__title">
+        Lo Que Dicen Nuestros Clientes
+      </h2>
       <p class="testimonial-carousel__subtitle">
         Hemos ayudado a empresas de diversas industrias a dar vida a sus ideas.
       </p>
     </div>
-
-    <div class="testimonial-carousel__content">
-      <div class="testimonial-carousel__track">
-        @for (testimonial of testimonials; track testimonial.id; let i = $index) {
-          <div class="testimonial-carousel__slide" 
-               [class.testimonial-carousel__slide--active]="i === currentSlide">
-            <app-testimonial-card 
-              [testimonial]="testimonial"
-              [isActive]="i === currentSlide">
-            </app-testimonial-card>
-          </div>
-        }
-      </div>
-
-      <app-carousel-navigation
-        (previous)="previousSlide()"
-        (next)="nextSlide()">
-      </app-carousel-navigation>
-    </div>
-
-    <app-carousel-indicators
-      [total]="testimonials.length"
-      [current]="currentSlide"
-      (indicatorClick)="goToSlide($event)">
-    </app-carousel-indicators>
+    <p-carousel
+      [value]="testimonials"
+      [responsiveOptions]="responsiveOptions"
+      orientation="horizontal"
+      [numVisible]="1"
+      [numScroll]="1"
+      [circular]="true"
+      [autoplayInterval]="3000"
+      [showIndicators]="true"
+      contentClass="flex items-center"
+    >
+      <ng-template let-product #item>
+        <app-testimonial-card
+          [testimonial]="product"
+        ></app-testimonial-card>
+      </ng-template>
+    </p-carousel>
   </div>
 </section>

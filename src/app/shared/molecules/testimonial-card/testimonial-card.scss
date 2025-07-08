@@ -6,9 +6,9 @@
   padding: vars.$spacing-lg;
   text-align: center;
   max-width: 100%;
-  opacity: 0.7;
   transform: scale(0.95);
   transition: all vars.$transitionDuration vars.$transitionEasing;
+  margin: auto auto;
 
   @include mixins.tablet-up() {
     padding: vars.$spacing-xl;
@@ -32,25 +32,6 @@
     flex-direction: column;
     align-items: center;
     gap: vars.$spacing-lg;
-  }
-
-  &__avatar {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 3px solid vars.color('primary');
-
-    @include mixins.tablet-up() {
-      width: 100px;
-      height: 100px;
-    }
-  }
-
-  &__image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
   }
 
   &__quote {
