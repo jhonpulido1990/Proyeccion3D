@@ -4,12 +4,7 @@ import { BrandLogo } from "../../molecules/brand-logo/brand-logo";
 import { NavigationMenu } from "../../molecules/navigation-menu/navigation-menu";
 import { MobileToggle } from "../../molecules/mobile-toggle/mobile-toggle";
 import { MobileMenu } from "../../molecules/mobile-menu/mobile-menu";
-
-interface NavigationLink {
-  path: string;
-  label: string;
-  description?: string;
-}
+import { NavigationLink } from '../../../core/models/interfaces/NavigationLink.inteface';
 
 @Component({
   selector: 'app-navbar',

@@ -1,0 +1,200 @@
+@use '../../../../assets/styles/variables' as vars;
+@use '../../../../assets/styles/mixins' as mixins;
+
+.service-card {
+  // Mobile First
+  position: relative;
+  border-radius: vars.$borderRadius;
+  box-shadow: 0 vars.$spacing-xs 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform vars.$transitionDuration vars.$transitionEasing, 
+              box-shadow vars.$transitionDuration vars.$transitionEasing;
+  margin: vars.$spacing-xs;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  // La imagen ahora está en el contenedor principal
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* background-color: vars.color(bg-gray1); */
+
+  &:hover {
+    transform: translateY(-#{vars.$spacing-xs});
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+
+    .service-card__overlay {
+      opacity: 0.8;
+    }
+  }
+
+  @include mixins.tablet-up() {
+    margin: vars.$spacing-sm;
+  }
+
+  @include mixins.desktop-up() {
+    margin: vars.$spacing-md;
+  }
+
+  // BEM Elements
+  &__overlay {
+    position: absolute;
+    inset: 0;
+   /*  background: linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.3) 100%
+    ); */
+    /* opacity: 0.5; */
+    transition: opacity vars.$transitionDuration vars.$transitionEasing;
+    z-index: 1;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 2;
+    padding: vars.$spacing-sm;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; // Contenido hacia abajo
+    color: vars.color(black2); // Texto blanco para contraste
+
+    @include mixins.tablet-up() {
+      padding: vars.$spacing-md;
+    }
+
+    @include mixins.desktop-up() {
+      padding: vars.$spacing-lg;
+    }
+  }
+
+  &__title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: vars.color(black2);
+    margin: 0 0 vars.$spacing-xs 0;
+    line-height: 1.3;
+    text-align: center;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+
+    @include mixins.tablet-up() {
+      font-size: 1.125rem;
+    }
+
+    @include mixins.desktop-up() {
+      font-size: 1.5rem;
+    }
+  }
+
+  &__description {
+    font-size: vars.$font-size-ultra-sm;
+    color: vars.color(black3);
+    margin: 0 0 vars.$spacing-sm 0;
+    line-height: 1.5;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+
+    @include mixins.tablet-up() {
+      font-size: vars.$font-size-sm;
+      margin: 0 0 vars.$spacing-md 0;
+    }
+
+    @include mixins.desktop-up() {
+      font-size: vars.$font-size-text;
+    }
+  }
+
+  &__features {
+    margin-bottom: vars.$spacing-sm;
+
+    @include mixins.tablet-up() {
+      margin-bottom: vars.$spacing-md;
+    }
+  }
+
+  &__features-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__feature {
+    font-size: vars.$font-size-ultra-sm;
+    padding: vars.$spacing-xs 0;
+    position: relative;
+    padding-left: vars.$spacing-md;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    color: vars.color(black3);
+    font-weight: 500;
+
+    @include mixins.tablet-up() {
+      font-size: vars.$font-size-sm;
+      padding-left: vars.$spacing-lg;
+    }
+
+    &::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: vars.color(green2);
+      font-weight: bold;
+      font-size: vars.$font-size-sm;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  &__footer {
+    text-align: center;
+    margin-top: auto;
+  }
+
+  &__price {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.9);
+    color: vars.color(black3);
+    padding: vars.$spacing-xs vars.$spacing-sm;
+    border-radius: vars.$borderRadius-sm;
+    font-weight: 600;
+    font-size: vars.$font-size-ultra-sm;
+    transition: background vars.$transitionDuration vars.$transitionEasing;
+    backdrop-filter: blur(4px);
+
+    @include mixins.tablet-up() {
+      font-size: vars.$font-size-sm;
+      padding: vars.$spacing-sm vars.$spacing-md;
+    }
+
+    &:hover {
+      background: vars.color(white1);
+    }
+  }
+}
+
+// Breakpoint específico para móviles muy pequeños
+@include mixins.mobile-only() {
+  .service-card {
+    margin: 2px;
+
+    &__content {
+      padding: vars.$spacing-xs;
+    }
+
+    &__title {
+      font-size: 0.9rem;
+    }
+
+    &__description {
+      font-size: 0.75rem;
+    }
+
+    &__feature {
+      font-size: 0.75rem;
+    }
+
+    &__price {
+      font-size: 0.75rem;
+      padding: vars.$spacing-xs;
+    }
+  }
+}
