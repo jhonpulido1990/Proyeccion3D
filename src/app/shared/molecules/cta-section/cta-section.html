@@ -1,0 +1,25 @@
+<section class="cta-section" [class.cta-section--overlay]="overlay">
+  <div class="cta-section__background" [style.background-image]="backgroundImage ? 'url(' + backgroundImage + ')' : 'none'"></div>
+
+  <div class="cta-section__overlay" *ngIf="overlay"></div>
+
+  <div class="cta-section__container">
+    <div class="cta-section__content">
+      <h2 class="cta-section__title">
+        {{ title }}
+        <span class="cta-section__highlight" *ngIf="highlightedWord">{{ highlightedWord }}</span>
+      </h2>
+
+      <p class="cta-section__description">{{ description }}</p>
+
+      <div class="cta-section__actions" *ngIf="button">
+        <a [routerLink]="button.path"
+           [class]="'cta-section__button cta-section__button--' + (button.variant || 'primary')">
+          <i [class]="button.icon" *ngIf="button.icon"></i>
+          {{ button.label }}
+          <i class="pi pi-arrow-right cta-section__arrow"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
