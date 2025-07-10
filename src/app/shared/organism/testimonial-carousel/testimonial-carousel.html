@@ -10,13 +10,9 @@
     </div>
     <p-carousel
       [value]="testimonials()"
-      [responsiveOptions]="responsiveOptions"
-      orientation="horizontal"
       [numVisible]="1"
       [numScroll]="1"
-      [circular]="true"
       [autoplayInterval]="3000"
-      [showIndicators]="true"
       contentClass="flex items-center"
     >
       <ng-template let-product #item>

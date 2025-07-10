@@ -1,4 +1,4 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { ServiceCard } from '../../molecules/service-card/service-card';
 import { CarouselModule } from 'primeng/carousel';
 import { Service } from '../../../core/models/interfaces/Service.interface';
@@ -9,7 +9,7 @@ import { Service } from '../../../core/models/interfaces/Service.interface';
   templateUrl: './service-carousel.html',
   styleUrl: './service-carousel.scss'
 })
-export class ServiceCarousel implements OnInit {
+export class ServiceCarousel {
 
   responsiveOptions: any[] | undefined;
 
@@ -67,29 +67,4 @@ export class ServiceCarousel implements OnInit {
       price: 'Desde $75'
     }
   ]);
-
-  ngOnInit(): void {
-    this.responsiveOptions = [
-      {
-        breakpoint: '1400px',
-        numVisible: 1,
-        numScroll: 1
-      },
-      {
-        breakpoint: '1199px',
-        numVisible: 1,
-        numScroll: 1
-      },
-      {
-        breakpoint: '767px',
-        numVisible: 1,
-        numScroll: 1
-      },
-      {
-        breakpoint: '575px',
-        numVisible: 1,
-        numScroll: 1
-      }
-    ]
-  }
 }
