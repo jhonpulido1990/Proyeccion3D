@@ -1,0 +1,265 @@
+@use '../../../../assets/styles/variables' as vars;
+@use '../../../../assets/styles/mixins' as mixins;
+
+.hero-header {
+  // Mobile First
+  padding: vars.$spacing-xxl 0;
+  background-color: vars.color('black2');
+  color: vars.color('white1');
+  overflow: hidden;
+
+  @include mixins.tablet-up() {
+    padding: 80px 0;
+  }
+
+  @include mixins.desktop-up() {
+    padding: 120px 0;
+  }
+
+  // BEM Elements
+  &__container {
+    max-width: vars.$container-max-width;
+    margin: 0 auto;
+    padding: 0 vars.$spacing-md;
+
+    @include mixins.tablet-up() {
+      padding: 0 vars.$spacing-lg;
+    }
+  }
+
+  &__content {
+    display: grid;
+    gap: vars.$spacing-xl;
+    align-items: center;
+
+    @include mixins.desktop-up() {
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+    }
+  }
+
+  &__text {
+    order: 1;
+
+    @include mixins.desktop-up() {
+      order: 0;
+    }
+  }
+
+  &__title {
+    font-size: vars.$font-size-title-mobile;
+    font-weight: 700;
+    color: vars.color('white1');
+    margin: 0 0 vars.$spacing-md 0;
+    line-height: 1.1;
+
+    @include mixins.tablet-up() {
+      font-size: 3.5rem;
+    }
+
+    @include mixins.desktop-up() {
+      font-size: 4.5rem;
+    }
+
+    @include mixins.desktop-large-up() {
+      font-size: vars.$font-size-title;
+    }
+  }
+
+  &__highlight {
+    color: vars.color('blue400');
+  }
+
+  &__subtitle {
+    font-size: vars.$font-size-text;
+    font-weight: 400;
+    color: vars.color('blue400');
+    margin: 0 0 vars.$spacing-lg 0;
+    line-height: 1.4;
+
+    @include mixins.tablet-up() {
+      font-size: 1.5rem;
+    }
+
+    @include mixins.desktop-up() {
+      font-size: 1.75rem;
+    }
+  }
+
+  &__description {
+    font-size: vars.$font-size-text-mobile;
+    color: vars.color('gray8');
+    margin: 0 0 vars.$spacing-xl 0;
+    line-height: 1.6;
+    max-width: 500px;
+
+    @include mixins.tablet-up() {
+      font-size: vars.$font-size-text;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: vars.$spacing-md;
+
+    @include mixins.mobile-only() {
+      flex-direction: column;
+    }
+  }
+
+  &__button {
+    display: inline-flex;
+    align-items: center;
+    gap: vars.$spacing-sm;
+    padding: vars.$spacing-md vars.$spacing-lg;
+    border-radius: vars.$borderRadius;
+    font-weight: 600;
+    text-decoration: none;
+    border: 2px solid transparent;
+    transition: all vars.$transitionDuration vars.$transitionEasing;
+    cursor: pointer;
+    font-size: vars.$font-size-text-mobile;
+    white-space: nowrap;
+
+    @include mixins.tablet-up() {
+      font-size: vars.$font-size-text;
+      padding: 18px vars.$spacing-xl;
+    }
+
+    // Button variants
+    &--primary {
+      background-color: vars.color('blue600');
+      color: vars.color('white1');
+      border-color: vars.color('blue600');
+
+      &:hover {
+        background-color: vars.color('blue700');
+        border-color: vars.color('blue700');
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
+      }
+    }
+
+    &--secondary {
+      background-color: transparent;
+      color: vars.color('white1');
+      border-color: vars.color('white1');
+
+      &:hover {
+        background-color: vars.color('white1');
+        color: vars.color('black2');
+        transform: translateY(-2px);
+      }
+    }
+
+    &--outline {
+      background-color: transparent;
+      color: vars.color('blue400');
+      border-color: vars.color('blue400');
+
+      &:hover {
+        background-color: vars.color('blue400');
+        color: vars.color('white1');
+        transform: translateY(-2px);
+      }
+    }
+
+    // Icon styles
+    &--with-icon {
+      i {
+        font-size: 1.1em;
+        margin-left: vars.$spacing-xs;
+      }
+    }
+
+    // Focus states
+    &:focus {
+      @include mixins.focused();
+    }
+  }
+
+  &__image {
+    order: 0;
+    position: relative;
+
+    @include mixins.desktop-up() {
+      order: 1;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: auto;
+    border-radius: vars.$borderRadius-lg;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    transition: transform vars.$transitionDuration vars.$transitionEasing;
+
+    &:hover {
+      transform: scale(1.02);
+    }
+
+    @include mixins.desktop-up() {
+      max-height: 500px;
+      object-fit: cover;
+    }
+  }
+
+  // Animations
+  &__text {
+    animation: fadeInLeft 0.8s ease-out;
+  }
+
+  &__image {
+    animation: fadeInRight 0.8s ease-out 0.2s both;
+  }
+
+  &__title {
+    animation: fadeInUp 0.8s ease-out 0.1s both;
+  }
+
+  &__subtitle {
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+  }
+
+  &__description {
+    animation: fadeInUp 0.8s ease-out 0.3s both;
+  }
+
+  &__actions {
+    animation: fadeInUp 0.8s ease-out 0.4s both;
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
