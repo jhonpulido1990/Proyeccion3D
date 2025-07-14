@@ -1,39 +1,33 @@
 <footer class="footer">
-  <div class="footer-container">
-    <div class="footer-content">
+  <section class="footer-container">
+    <article class="footer-content">
       <!-- Brand Section -->
-      <div class="footer-brand-section">
-        <app-footer-brand
-          title="Proyección3DBIC"
+      <section class="footer-brand-section">
+        <app-footer-brand title="Proyección3DBIC"
           description="Transformando ideas en realidad a través de soluciones innovadoras de impresión 3D.">
         </app-footer-brand>
-      </div>
+      </section>
 
       <!-- Quick Links -->
-      <div class="footer-links-section">
-        <app-footer-section
-          [title]="quickLinks.title"
-          [links]="quickLinks.links">
+      <section class="footer-links-section">
+        <app-footer-section [title]="quickLinks().title" [links]="quickLinks().links">
         </app-footer-section>
-      </div>
+      </section>
 
       <!-- Services -->
-      <div class="footer-links-section">
-        <app-footer-section
-          [title]="services.title"
-          [links]="services.links">
+      <section class="footer-links-section">
+        <app-footer-section [title]="services().title" [links]="services().links">
         </app-footer-section>
-      </div>
+      </section>
 
       <!-- Contact Info -->
-      <div class="footer-contact-section">
+      <section class="footer-contact-section">
         <app-footer-contact></app-footer-contact>
-      </div>
-    </div>
+      </section>
+    </article>
 
     <!-- Copyright -->
-    <app-footer-copyright
-      [legalLinks]="legalLinks">
+    <app-footer-copyright [legalLinks]="legalLinks()">
     </app-footer-copyright>
-  </div>
+    </section>
 </footer>

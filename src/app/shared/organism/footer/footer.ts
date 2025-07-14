@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { FooterBrand } from '../../molecules/footer-brand/footer-brand';
 import { FooterSection } from '../../molecules/footer-section/footer-section';
 import { FooterContact } from '../../molecules/footer-contact/footer-contact';
@@ -13,7 +13,7 @@ import { FooterSectionData } from '../../../core/models/interfaces/FooterSection
   styleUrl: './footer.scss',
 })
 export class Footer {
-  quickLinks: FooterSectionData = {
+  quickLinks = signal<FooterSectionData>({
     title: 'Enlaces Rápidos',
     links: [
       { label: 'Inicio', path: '/' },
@@ -22,9 +22,9 @@ export class Footer {
       { label: 'Portafolio', path: '/project' },
       { label: 'Contacto', path: '/contact' },
     ],
-  };
+  });
 
-  services: FooterSectionData = {
+  services = signal<FooterSectionData>({
     title: 'Servicios',
     links: [
       { label: 'Prototipado Rápido', path: '/service/prototipado' },
@@ -33,11 +33,11 @@ export class Footer {
       { label: 'Servicios de Diseño', path: '/service/diseño' },
       { label: 'Escaneo 3D', path: '/service/escaneo' },
     ],
-  };
+  });
 
-  legalLinks: FooterLink[] = [
+  legalLinks = signal<FooterLink[]>([
     { label: 'Política de Privacidad', path: '/privacy' },
     { label: 'Términos de Servicio', path: '/terms' },
     { label: 'Mapa del Sitio', path: '/sitemap' },
-  ];
+  ]);
 }

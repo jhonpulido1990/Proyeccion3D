@@ -1,8 +1,13 @@
-<app-hero-header [title]="heroData.title" [subtitle]="heroData.subtitle" [description]="heroData.description"
-  [highlightedWord]="heroData.highlightedWord" [heroImage]="heroData.heroImage" [buttons]="heroData.buttons">
+<!-- Home -->
+<app-hero-header [title]="homeHeroData.title" [highlightedWords]="homeHeroData.highlightedWords"
+  [subtitle]="homeHeroData.subtitle" [description]="homeHeroData.description" [heroImage]="homeHeroData.heroImage"
+  [buttons]="homeHeroData.buttons" [config]="homeHeroData.config">
 </app-hero-header>
+<app-section-hero [title]="aboutHeroData().title" [description]="aboutHeroData().description" [image]="aboutHeroData().image"
+  [imageAlt]="aboutHeroData().imageAlt" [button]="aboutHeroData().button">
+</app-section-hero>
 <app-service-carousel />
 <app-testimonial-carousel />
-<app-cta-section [title]="ctaData.title" [description]="ctaData.description" [backgroundImage]="ctaData.backgroundImage"
-  [button]="ctaData.button" [highlightedWord]="ctaData.highlightedWord">
+<app-cta-section [title]="ctaData().title" [description]="ctaData().description" [backgroundImage]="ctaData().backgroundImage"
+  [button]="ctaData().button" [highlightedWord]="ctaData().highlightedWord">
 </app-cta-section>
