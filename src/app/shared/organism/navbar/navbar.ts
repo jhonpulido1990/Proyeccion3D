@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrandLogo } from "../../molecules/brand-logo/brand-logo";
 import { NavigationMenu } from "../../molecules/navigation-menu/navigation-menu";
@@ -13,7 +13,7 @@ import { NavigationLink } from '../../../core/models/interfaces/NavigationLink.i
   styleUrl: './navbar.scss'
 })
 export class Navbar {
-  isMobileMenuOpen = false;
+  isMobileMenuOpen = signal(false);
 
   navigationLinks: NavigationLink[] = [
     { path: '/', label: 'Inicio' },
@@ -24,10 +24,10 @@ export class Navbar {
   ];
 
   toggleMobileMenu(): void {
-    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+    this.isMobileMenuOpen.set(!this.isMobileMenuOpen());
   }
 
   closeMobileMenu(): void {
-    this.isMobileMenuOpen = false;
+    this.isMobileMenuOpen.set(false);
   }
 }

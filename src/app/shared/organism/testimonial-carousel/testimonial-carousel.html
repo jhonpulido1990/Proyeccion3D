@@ -1,25 +1,18 @@
 <section class="testimonial-carousel">
-  <div class="testimonial-carousel__container">
-    <div class="testimonial-carousel__header">
+  <article class="testimonial-carousel__container">
+    <section class="testimonial-carousel__header">
       <h2 class="testimonial-carousel__title">
         Lo Que Dicen Nuestros Clientes
       </h2>
       <p class="testimonial-carousel__subtitle">
         Hemos ayudado a empresas de diversas industrias a dar vida a sus ideas.
       </p>
-    </div>
-    <p-carousel
-      [value]="testimonials()"
-      [numVisible]="1"
-      [numScroll]="1"
-      [autoplayInterval]="3000"
-      contentClass="flex items-center"
-    >
+    </section>
+    <p-carousel [value]="testimonials()" [numVisible]="1" [numScroll]="1" [autoplayInterval]="6000"
+      contentClass="flex items-center">
       <ng-template let-product #item>
-        <app-testimonial-card
-          [testimonial]="product"
-        ></app-testimonial-card>
+        <app-testimonial-card [testimonial]="product"></app-testimonial-card>
       </ng-template>
     </p-carousel>
-  </div>
+    </article>
 </section>
