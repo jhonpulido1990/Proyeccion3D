@@ -19,7 +19,7 @@
       @if (config().layout === 'hero-with-image') {
       <article class="page-hero__grid">
         <!-- Contenido de texto -->
-        <section pAnimateOnScroll enterClass="animate-enter fade-in-30 slide-in-from-b-8 animate-duration-2000"
+        <section
           class="page-hero__text-content" leaveClass="animate-leave fade-out-0">
           <!-- Título con animación escalonada por palabra -->
           <h1 class="page-hero__title">
@@ -31,12 +31,12 @@
           </h1>
 
           @if (subtitle()) {
-          <h2 pAnimateOnScroll enterClass="animate-enter fade-in-30 slide-in-from-b-8 animate-duration-2000" leaveClass="animate-leave fade-out-0"
+          <h2
             class="page-hero__subtitle">{{ subtitle() }}</h2>
           }
 
           @if (description()) {
-          <p pAnimateOnScroll enterClass="animate-enter fade-in-30 slide-in-from-b-8 animate-duration-2000" leaveClass="animate-leave fade-out-0"
+          <p
             class="page-hero__description">{{ description() }}</p>
           }
 
@@ -44,7 +44,7 @@
           <article class="page-hero__actions">
             @for (button of buttons(); track button.label; let i = $index) {
             @if (button.path) {
-            <a pAnimateOnScroll enterClass="animate-enter fade-in-30 slide-in-from-b-8 animate-duration-3000" leaveClass="animate-leave fade-out-0"
+            <a
               [routerLink]="button.path" [class]="'page-hero__button page-hero__button--' + button.variant">
               {{ button.label }}
               @if (button.icon) {
@@ -52,7 +52,7 @@
               }
             </a>
             } @else {
-            <button pAnimateOnScroll enterClass="animate-enter fade-in-0 slide-in-from-b-6 animate-duration-600"
+            <button
               (click)="button.action?.()" [class]="'page-hero__button page-hero__button--' + button.variant">
               {{ button.label }}
               @if (button.icon) {
@@ -67,7 +67,7 @@
 
         <!-- Imagen con animación -->
         @if (heroImage()) {
-        <section pAnimateOnScroll enterClass="animate-enter fade-in-0 slide-in-from-r-12 animate-duration-1000"
+        <section
           class="page-hero__image-container">
           <img [src]="heroImage()" [alt]="imageAlt || title" class="page-hero__image">
           <div class="page-hero__image-overlay"></div>
@@ -78,7 +78,7 @@
 
       <!-- Layout simple/centrado -->
       @if (config().layout === 'simple' || config().layout === 'centered' || config().layout === 'hero-with-background') {
-      <article pAnimateOnScroll enterClass="animate-enter fade-in-0 slide-in-from-r-12 animate-duration-1000"
+      <article
         class="page-hero__simple-content">
         <!-- Título centrado con animación escalonada -->
         <h1 class="page-hero__title">
@@ -90,12 +90,12 @@
         </h1>
 
         @if (subtitle()) {
-        <h2 pAnimateOnScroll enterClass="animate-enter fade-in-30 slide-in-from-b-48 animate-duration-3000"
+        <h2
           class="page-hero__subtitle">{{ subtitle() }}</h2>
         }
 
         @if (description()) {
-        <p pAnimateOnScroll enterClass="animate-enter fade-in-30 slide-in-from-b-48 animate-duration-3000"
+        <p
           class="page-hero__description">{{ description() }}</p>
         }
 
@@ -103,8 +103,7 @@
         <section class="page-hero__actions">
           @for (button of buttons(); track button.label; let i = $index) {
           @if (button.path) {
-          <a pAnimateOnScroll
-            enterClass="animate-enter fade-in-0 zoom-in-75 animate-duration-500"
+          <a
             [routerLink]="button.path" [class]="'page-hero__button page-hero__button--' + button.variant">
             {{ button.label }}
             @if (button.icon) {
@@ -112,8 +111,7 @@
             }
           </a>
           } @else {
-          <button pAnimateOnScroll
-            enterClass="animate-enter fade-in-0 zoom-in-75 animate-duration-500"
+          <button
             (click)="button.action?.()" [class]="'page-hero__button page-hero__button--' + button.variant">
             {{ button.label }}
             @if (button.icon) {

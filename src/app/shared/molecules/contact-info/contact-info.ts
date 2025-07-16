@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { Component, input } from '@angular/core';
-import { AnimateOnScroll } from 'primeng/animateonscroll';
 
 export interface ContactInfoItem {
   icon: string;
@@ -11,7 +10,7 @@ export interface ContactInfoItem {
 
 @Component({
   selector: 'app-contact-info',
-  imports: [CommonModule, AnimateOnScroll],
+  imports: [CommonModule],
   templateUrl: './contact-info.html',
   styleUrl: './contact-info.scss'
 })

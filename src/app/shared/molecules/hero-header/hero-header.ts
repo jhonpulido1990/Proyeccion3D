@@ -1,8 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { AnimateOnScroll } from 'primeng/animateonscroll';
-import { signal, computed, input } from '@angular/core';
+import { computed, input } from '@angular/core';
 
 export interface PageHeroButton {
   label: string;
@@ -26,7 +25,7 @@ export interface PageHeroConfig {
 
 @Component({
   selector: 'app-hero-header',
-  imports: [CommonModule, RouterModule, AnimateOnScroll],
+  imports: [CommonModule, RouterModule],
   templateUrl: './hero-header.html',
   styleUrl: './hero-header.scss'
 })
@@ -49,7 +48,7 @@ export class HeroHeaderComponent {
   titleParts = computed(() => {
     const title = this.title();
     const highlightedWords = this.highlightedWords();
-    
+
     if (!highlightedWords || highlightedWords.length === 0) {
       return [{ text: title, isHighlighted: false }];
     }

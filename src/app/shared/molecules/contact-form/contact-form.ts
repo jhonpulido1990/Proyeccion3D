@@ -3,7 +3,6 @@ import { Component, Input } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FloatLabelModule } from "primeng/floatlabel"
 import { InputTextModule } from 'primeng/inputtext';
-import { AnimateOnScroll } from 'primeng/animateonscroll';
 
 export interface ContactFormData {
   firstName: string;
@@ -22,7 +21,7 @@ export interface ServiceOption {
 @Component({
   selector: 'app-contact-form',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, FloatLabelModule, InputTextModule, AnimateOnScroll],
+  imports: [CommonModule, ReactiveFormsModule, FloatLabelModule, InputTextModule],
   templateUrl: './contact-form.html',
   styleUrl: './contact-form.scss'
 })

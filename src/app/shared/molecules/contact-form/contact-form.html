@@ -1,5 +1,4 @@
-<div class="contact-form" pAnimateOnScroll
-  enterClass="animate-enter fade-in-10 slide-in-from-r-20 animate-duration-3000" leaveClass="animate-leave fade-out-0">
+<div class="contact-form">
   <div class="contact-form__container">
     <h3 class="contact-form__title">{{ title }}</h3>
 
@@ -15,12 +14,12 @@
             placeholder="John"
             class="contact-form__input"
             [class.contact-form__input--invalid]="isFieldInvalid('firstName')">
-          
+
           @if (isFieldInvalid('firstName')) {
             <span class="contact-form__error">{{ getFieldError('firstName') }}</span>
           }
         </div>
-        
+
         <div class="contact-form__field">
           <label for="lastName" class="contact-form__label">Apellido</label>
           <input
@@ -30,7 +29,7 @@
             placeholder="Doe"
             class="contact-form__input"
             [class.contact-form__input--invalid]="isFieldInvalid('lastName')">
-          
+
           @if (isFieldInvalid('lastName')) {
             <span class="contact-form__error">{{ getFieldError('lastName') }}</span>
           }
@@ -47,7 +46,7 @@
           placeholder="john.doe@example.com"
           class="contact-form__input"
           [class.contact-form__input--invalid]="isFieldInvalid('email')">
-        
+
         @if (isFieldInvalid('email')) {
           <span class="contact-form__error">{{ getFieldError('email') }}</span>
         }
@@ -63,7 +62,7 @@
           placeholder="(123) 456-7890"
           class="contact-form__input"
           [class.contact-form__input--invalid]="isFieldInvalid('phone')">
-        
+
         @if (isFieldInvalid('phone')) {
           <span class="contact-form__error">{{ getFieldError('phone') }}</span>
         }
@@ -97,7 +96,7 @@
             </div>
           }
         </div>
-        
+
         @if (isFieldInvalid('service')) {
           <span class="contact-form__error">{{ getFieldError('service') }}</span>
         }
@@ -113,7 +112,7 @@
           rows="5"
           class="contact-form__textarea"
           [class.contact-form__textarea--invalid]="isFieldInvalid('message')"></textarea>
-        
+
         @if (isFieldInvalid('message')) {
           <span class="contact-form__error">{{ getFieldError('message') }}</span>
         }

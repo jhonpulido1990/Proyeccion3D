@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { Component, input, Input } from '@angular/core';
-import { AnimateOnScroll } from 'primeng/animateonscroll';
 
 export interface BusinessHour {
   day: string;
@@ -9,7 +8,7 @@ export interface BusinessHour {
 
 @Component({
   selector: 'app-business-hours',
-  imports: [CommonModule, AnimateOnScroll],
+  imports: [CommonModule],
   templateUrl: './business-hours.html',
   styleUrl: './business-hours.scss'
 })

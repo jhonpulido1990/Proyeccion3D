@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, input } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { AnimateOnScroll } from 'primeng/animateonscroll';
 
 export interface AboutHeroButton {
   label: string;
@@ -12,7 +11,7 @@ export interface AboutHeroButton {
 
 @Component({
   selector: 'app-section-hero',
-  imports: [CommonModule, RouterModule, AnimateOnScroll],
+  imports: [CommonModule, RouterModule],
   templateUrl: './section-hero.html',
   styleUrl: './section-hero.scss'
 })

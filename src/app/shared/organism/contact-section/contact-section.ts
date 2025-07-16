@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, input, Output } from '@angular/core';
-import { ContactForm, ContactFormData, ServiceOption } from '../../molecules/contact-form/contact-form';
+import { Component, input } from '@angular/core';
+import { ContactForm, ServiceOption } from '../../molecules/contact-form/contact-form';
 import { BusinessHour, BusinessHours } from '../../molecules/business-hours/business-hours';
 import { ContactInfo, ContactInfoItem } from '../../molecules/contact-info/contact-info';
 
