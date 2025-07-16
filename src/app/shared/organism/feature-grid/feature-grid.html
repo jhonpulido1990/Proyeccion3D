@@ -1,0 +1,26 @@
+<div class="o-service">
+  <div class="o-feature-grid" [class.o-feature-grid--reverse]="reverse">
+    <div class="o-feature-grid__text">
+      <div class="o-feature-grid__grid-icon" *ngIf="icon">
+        <i [ngClass]="icon" class="o-feature-grid__icon"></i>
+      </div>
+      <h2 class="o-feature-grid__title">{{ title }}</h2>
+      <p class="o-feature-grid__description">{{ description }}</p>
+      <ul class="o-feature-grid__list" *ngIf="texts?.length">
+        <li class="o-feature-grid__list-item" *ngFor="let text of texts">
+          <span class="o-feature-grid__list-icon">
+            <i [ngClass]="checkIcon" class="o-feature-grid__check"></i>
+          </span>
+          <span class="o-feature-grid__list-text">{{ text }}</span>
+        </li>
+      </ul>
+    </div>
+    <div class="o-feature-grid__image">
+      <img [src]="image" alt="{{ title }}" />
+    </div>
+  </div>
+</div>
+
+
+
+
