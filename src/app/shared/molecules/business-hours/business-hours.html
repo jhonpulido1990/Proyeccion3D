@@ -1,0 +1,15 @@
+<div class="business-hours" pAnimateOnScroll
+  enterClass="animate-enter fade-in-10 slide-in-from-b-20 animate-duration-[6000ms]" leaveClass="animate-leave fade-out-0">
+  <h3 class="business-hours__title">{{ title() }}</h3>
+
+  <table class="business-hours__table">
+    <tbody>
+      @for (hour of hours(); track hour.day; let i = $index) {
+      <tr class="business-hours__row">
+        <td class="business-hours__day">{{ hour.day }}</td>
+        <td class="business-hours__time">{{ hour.hours }}</td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>

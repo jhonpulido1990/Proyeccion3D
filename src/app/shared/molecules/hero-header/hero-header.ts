@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { AnimateOnScroll } from 'primeng/animateonscroll';
+import { signal, computed, input } from '@angular/core';
 
 export interface PageHeroButton {
   label: string;
@@ -30,29 +31,32 @@ export interface PageHeroConfig {
   styleUrl: './hero-header.scss'
 })
 export class HeroHeaderComponent {
-  @Input() title!: string;
-  @Input() highlightedWords?: string[] = [];
-  @Input() subtitle?: string;
-  @Input() description?: string;
-  @Input() heroImage?: string;
-  @Input() imageAlt?: string;
-  @Input() buttons?: PageHeroButton[] = [];
-  @Input() config: PageHeroConfig = {
+  title = input.required<string>();
+  highlightedWords = input<string[]>([]);
+  subtitle = input<string>();
+  description = input<string>();
+  heroImage = input<string>();
+  imageAlt = input<string>();
+  buttons = input<PageHeroButton[]>([]);
+  config = input<PageHeroConfig>({
     layout: 'simple',
     backgroundColor: '#0f172a',
     textColor: 'white',
     textAlign: 'left',
     maxWidth: '48rem'
-  };
+  });
 
-  get titleParts() {
-    if (!this.highlightedWords || this.highlightedWords.length === 0) {
-      return [{ text: this.title, isHighlighted: false }];
+  titleParts = computed(() => {
+    const title = this.title();
+    const highlightedWords = this.highlightedWords();
+    
+    if (!highlightedWords || highlightedWords.length === 0) {
+      return [{ text: title, isHighlighted: false }];
     }
 
-    let result = [{ text: this.title, isHighlighted: false }];
+    let result = [{ text: title, isHighlighted: false }];
 
-    this.highlightedWords.forEach(word => {
+    highlightedWords.forEach(word => {
       const newResult: any[] = [];
       result.forEach(part => {
         if (part.isHighlighted) {
@@ -73,55 +77,58 @@ export class HeroHeaderComponent {
     });
 
     return result;
-  }
+  });
 
-  get containerClasses(): string {
+  containerClasses = computed(() => {
+    const config = this.config();
     const classes = ['page-hero'];
 
-    if (this.config.layout) {
-      classes.push(`page-hero--${this.config.layout}`);
+    if (config.layout) {
+      classes.push(`page-hero--${config.layout}`);
     }
 
-    if (this.config.backgroundImage) {
+    if (config.backgroundImage) {
       classes.push('page-hero--with-bg-image');
     }
 
-    if (this.config.hasOverlay) {
+    if (config.hasOverlay) {
       classes.push('page-hero--with-overlay');
     }
 
-    if (this.config.textAlign) {
-      classes.push(`page-hero--text-${this.config.textAlign}`);
+    if (config.textAlign) {
+      classes.push(`page-hero--text-${config.textAlign}`);
     }
 
     return classes.join(' ');
-  }
+  });
 
-  get containerStyles(): any {
+  containerStyles = computed(() => {
+    const config = this.config();
     const styles: any = {};
 
-    if (this.config.backgroundColor) {
-      styles.backgroundColor = this.config.backgroundColor;
+    if (config.backgroundColor) {
+      styles.backgroundColor = config.backgroundColor;
     }
 
-    if (this.config.backgroundImage) {
-      styles.backgroundImage = `url(${this.config.backgroundImage})`;
+    if (config.backgroundImage) {
+      styles.backgroundImage = `url(${config.backgroundImage})`;
     }
 
     return styles;
-  }
+  });
 
-  get overlayStyles(): any {
+  overlayStyles = computed(() => {
+    const config = this.config();
     const styles: any = {};
 
-    if (this.config.overlayColor) {
-      styles.backgroundColor = this.config.overlayColor;
+    if (config.overlayColor) {
+      styles.backgroundColor = config.overlayColor;
     }
 
-    if (this.config.overlayOpacity !== undefined) {
-      styles.opacity = this.config.overlayOpacity;
+    if (config.overlayOpacity !== undefined) {
+      styles.opacity = config.overlayOpacity;
     }
 
     return styles;
-  }
+  });
 }

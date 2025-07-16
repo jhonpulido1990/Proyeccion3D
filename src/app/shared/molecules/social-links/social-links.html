@@ -6,7 +6,7 @@
       rel="noopener noreferrer"
       class="social-link"
       [attr.aria-label]="link.name">
-      <span class="pi pi-{{ link.name }}" style="color: {{ link.icon }}"></span>
+      <span class="pi pi-{{ link.name }}" [style.color]="link.icon"></span>
     </a>
   }
 </div>
