@@ -3,27 +3,22 @@
 
 .testimonial-card {
   // Mobile First - Base styles
-  padding: vars.$spacing-lg;
   text-align: center;
-  max-width: 100%;
-  transform: scale(0.95);
-  transition: all vars.$transitionDuration vars.$transitionEasing;
-  margin: auto auto;
+  padding: 2rem 1rem;
+  transition: opacity 0.5s ease-in-out;
+  opacity: 0.7;
 
   @include mixins.tablet-up() {
-    padding: vars.$spacing-xl;
-    max-width: 600px;
+    padding: 2rem 3rem;
   }
 
   @include mixins.desktop-up() {
-    padding: vars.$spacing-xxl;
-    max-width: 800px;
+    padding: 2rem 4rem;
   }
 
   // BEM Modifier - Active state
   &--active {
     opacity: 1;
-    transform: scale(1);
   }
 
   // BEM Elements
@@ -31,49 +26,71 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: vars.$spacing-lg;
+    gap: 1.5rem;
+    max-width: 4xl;
+    margin: 0 auto;
+  }
+
+  &__avatar {
+    position: relative;
+    width: 5rem;
+    height: 5rem;
+    margin: 0 auto 1.5rem;
+
+    @include mixins.tablet-up() {
+      width: 5rem;
+      height: 5rem;
+    }
+  }
+
+  &__avatar-image {
+    border-radius: 50%;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border: 4px solid #dbeafe; // blue-100 equivalent
+    display: block;
   }
 
   &__quote {
-    font-size: vars.$font-size-text-mobile;
-    font-style: italic;
-    color: vars.color('gray7');
+    font-size: 1.25rem;
     line-height: 1.6;
-    margin: 0;
+    font-style: italic;
+    margin: 0 0 1.5rem 0;
+    color: #1e293b; // slate-800 equivalent
+    max-width: 100%;
 
     @include mixins.tablet-up() {
-      font-size: vars.$font-size-text;
+      font-size: 1.5rem;
+      line-height: 1.5;
     }
 
     @include mixins.desktop-up() {
-      font-size: 1.125rem;
+      font-size: 1.5rem;
     }
   }
 
   &__author {
     display: flex;
     flex-direction: column;
-    gap: vars.$spacing-xs;
+    gap: 0.25rem;
+    align-items: center;
   }
 
   &__name {
-    font-size: 1.125rem;
     font-weight: 600;
-    color: vars.color('black2');
+    font-size: 1.125rem;
+    color: #0f172a; // slate-900 equivalent
     margin: 0;
 
     @include mixins.tablet-up() {
-      font-size: 1.25rem;
+      font-size: 1.125rem;
     }
   }
 
   &__title {
-    font-size: vars.$font-size-sm;
-    color: vars.color('gray5');
+    color: #475569; // slate-600 equivalent
     margin: 0;
-
-    @include mixins.tablet-up() {
-      font-size: vars.$font-size-text-mobile;
-    }
+    font-size: 1rem;
   }
 }
