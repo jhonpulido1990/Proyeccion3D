@@ -1,50 +1,50 @@
-<section [class]="containerClasses" [ngStyle]="containerStyles">
+<section [class]="containerClasses()" [ngStyle]="containerStyles">
   <!-- Background image -->
-  @if (config.backgroundImage && config.layout === 'hero-with-background') {
-  <article class="page-hero__background" [style.background-image]="'url(' + config.backgroundImage + ')'">
+  @if (config().backgroundImage && config().layout === 'hero-with-background') {
+  <article class="page-hero__background" [style.background-image]="'url(' + config().backgroundImage + ')'">
   </article>
   }
 
   <!-- Overlay -->
-  @if (config.hasOverlay) {
+  @if (config().hasOverlay) {
   <article class="page-hero__overlay" [ngStyle]="overlayStyles">
   </article>
   }
 
   <!-- Contenido principal -->
   <article class="page-hero__container">
-    <section class="page-hero__content" [style.max-width]="config.maxWidth" [style.color]="config.textColor">
+    <section class="page-hero__content" [style.max-width]="config().maxWidth" [style.color]="config().textColor">
 
       <!-- Layout Hero con imagen -->
-      @if (config.layout === 'hero-with-image') {
+      @if (config().layout === 'hero-with-image') {
       <article class="page-hero__grid">
         <!-- Contenido de texto -->
-        <section pAnimateOnScroll enterClass="animate-enter fade-in-30 slide-in-from-b-8 animate-duration-2000"
-          class="page-hero__text-content">
+        <section
+          class="page-hero__text-content" leaveClass="animate-leave fade-out-0">
           <!-- Título con animación escalonada por palabra -->
           <h1 class="page-hero__title">
-            @for (part of titleParts; track part.text; let i = $index) {
+            @for (part of titleParts(); track part.text; let i = $index) {
             <span [class.page-hero__title--highlighted]="part.isHighlighted">
               {{ part.text }}
             </span>
             }
           </h1>
 
-          @if (subtitle) {
-          <h2 pAnimateOnScroll enterClass="animate-enter fade-in-30 slide-in-from-b-8 animate-duration-2000"
-            class="page-hero__subtitle">{{ subtitle }}</h2>
+          @if (subtitle()) {
+          <h2
+            class="page-hero__subtitle">{{ subtitle() }}</h2>
           }
 
-          @if (description) {
-          <p pAnimateOnScroll enterClass="animate-enter fade-in-30 slide-in-from-b-8 animate-duration-2000"
-            class="page-hero__description">{{ description }}</p>
+          @if (description()) {
+          <p
+            class="page-hero__description">{{ description() }}</p>
           }
 
-          @if (buttons && buttons.length > 0) {
+          @if (buttons()) {
           <article class="page-hero__actions">
-            @for (button of buttons; track button.label; let i = $index) {
+            @for (button of buttons(); track button.label; let i = $index) {
             @if (button.path) {
-            <a pAnimateOnScroll enterClass="animate-enter fade-in-30 slide-in-from-b-8 animate-duration-3000"
+            <a
               [routerLink]="button.path" [class]="'page-hero__button page-hero__button--' + button.variant">
               {{ button.label }}
               @if (button.icon) {
@@ -52,7 +52,7 @@
               }
             </a>
             } @else {
-            <button pAnimateOnScroll enterClass="animate-enter fade-in-0 slide-in-from-b-6 animate-duration-600"
+            <button
               (click)="button.action?.()" [class]="'page-hero__button page-hero__button--' + button.variant">
               {{ button.label }}
               @if (button.icon) {
@@ -66,10 +66,10 @@
         </section>
 
         <!-- Imagen con animación -->
-        @if (heroImage) {
-        <section pAnimateOnScroll enterClass="animate-enter fade-in-0 slide-in-from-r-12 animate-duration-1000"
+        @if (heroImage()) {
+        <section
           class="page-hero__image-container">
-          <img [src]="heroImage" [alt]="imageAlt || title" class="page-hero__image">
+          <img [src]="heroImage()" [alt]="imageAlt || title" class="page-hero__image">
           <div class="page-hero__image-overlay"></div>
         </section>
         }
@@ -77,34 +77,33 @@
       }
 
       <!-- Layout simple/centrado -->
-      @if (config.layout === 'simple' || config.layout === 'centered' || config.layout === 'hero-with-background') {
-      <article pAnimateOnScroll enterClass="animate-enter fade-in-0 slide-in-from-r-12 animate-duration-1000"
+      @if (config().layout === 'simple' || config().layout === 'centered' || config().layout === 'hero-with-background') {
+      <article
         class="page-hero__simple-content">
         <!-- Título centrado con animación escalonada -->
         <h1 class="page-hero__title">
-          @for (part of titleParts; track part.text; let i = $index) {
+          @for (part of titleParts(); track part.text; let i = $index) {
           <span [class.page-hero__title--highlighted]="part.isHighlighted">
             {{ part.text }}
           </span>
           }
         </h1>
 
-        @if (subtitle) {
-        <h2 pAnimateOnScroll enterClass="animate-enter fade-in-30 slide-in-from-b-48 animate-duration-3000"
-          class="page-hero__subtitle">{{ subtitle }}</h2>
+        @if (subtitle()) {
+        <h2
+          class="page-hero__subtitle">{{ subtitle() }}</h2>
         }
 
-        @if (description) {
-        <p pAnimateOnScroll enterClass="animate-enter fade-in-30 slide-in-from-b-48 animate-duration-3000"
-          class="page-hero__description">{{ description }}</p>
+        @if (description()) {
+        <p
+          class="page-hero__description">{{ description() }}</p>
         }
 
-        @if (buttons && buttons.length > 0) {
+        @if (buttons()) {
         <section class="page-hero__actions">
-          @for (button of buttons; track button.label; let i = $index) {
+          @for (button of buttons(); track button.label; let i = $index) {
           @if (button.path) {
-          <a pAnimateOnScroll
-            enterClass="animate-enter fade-in-0 zoom-in-75 animate-duration-500"
+          <a
             [routerLink]="button.path" [class]="'page-hero__button page-hero__button--' + button.variant">
             {{ button.label }}
             @if (button.icon) {
@@ -112,8 +111,7 @@
             }
           </a>
           } @else {
-          <button pAnimateOnScroll
-            enterClass="animate-enter fade-in-0 zoom-in-75 animate-duration-500"
+          <button
             (click)="button.action?.()" [class]="'page-hero__button page-hero__button--' + button.variant">
             {{ button.label }}
             @if (button.icon) {

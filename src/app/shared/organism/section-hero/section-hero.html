@@ -1,10 +1,8 @@
-<section class="section-hero">
+<section class="section-hero fade-in-up">
   <article class="section-hero__container">
     <section class="section-hero__grid">
       <!-- Contenido de texto -->
-      <article class="section-hero__content" pAnimateOnScroll
-        enterClass="animate-enter fade-in-10 slide-in-from-l-8 animate-duration-1000"
-        leaveClass="animate-leave fade-out-0">
+      <article class="section-hero__content">
         <h2 class="section-hero__title">{{ title() }}</h2>
 
         <p class="section-hero__description">{{ description() }}</p>
@@ -25,9 +23,7 @@
       </article>
 
       <!-- Imagen -->
-      <article class="section-hero__image-container" pAnimateOnScroll
-        enterClass="animate-enter fade-in-10 slide-in-from-r-8 animate-duration-1000"
-        leaveClass="animate-leave fade-out-0">
+      <article class="section-hero__image-container">
         <div class="section-hero__image-wrapper">
           <img [src]="image()" [alt]="imageAlt() ?? 'Equipo de trabajo'" class="section-hero__image">
         </div>
