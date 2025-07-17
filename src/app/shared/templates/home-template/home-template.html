@@ -1,11 +1,13 @@
 <!-- Home -->
-<app-hero-header [title]="homeHeroData.title" [highlightedWords]="homeHeroData.highlightedWords"
-  [subtitle]="homeHeroData.subtitle" [description]="homeHeroData.description" [heroImage]="homeHeroData.heroImage"
-  [buttons]="homeHeroData.buttons" [config]="homeHeroData.config">
+<app-hero-header [title]="homeHeroData().title" [highlightedWords]="homeHeroData().highlightedWords"
+  [subtitle]="homeHeroData().subtitle" [description]="homeHeroData().description" [heroImage]="homeHeroData().heroImage"
+  [buttons]="homeHeroData().buttons" [config]="homeHeroData().config">
 </app-hero-header>
 <app-section-hero [title]="aboutHeroData().title" [description]="aboutHeroData().description"
   [image]="aboutHeroData().image" [imageAlt]="aboutHeroData().imageAlt" [button]="aboutHeroData().button">
 </app-section-hero>
+<app-services-section [services]="myServicesArray()" [ctaText]="'Explorar Servicios'" [ctaLink]="'/services'"
+  [sectionTitle]="'Nuestros Servicios'" [sectionSubtitle]="'Descripción personalizada'" />
 <!-- Personalizado -->
 <app-service-carousel title="Nuestros Servicios" subtitle="Descubre nuestras soluciones completas de impresión 3D"
   [autoPlay]="true" [autoPlayInterval]="5000" [pauseOnHover]="true">
