@@ -1,19 +1,30 @@
-import { Component, signal } from '@angular/core';
+import { Component, Input, signal, computed, OnInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { ServiceCard } from '../../molecules/service-card/service-card';
-import { CarouselModule } from 'primeng/carousel';
 import { Service } from '../../../core/models/interfaces/Service.interface';
 
 @Component({
   selector: 'app-service-carousel',
-  imports: [ServiceCard, CarouselModule],
+  imports: [CommonModule, ServiceCard],
   templateUrl: './service-carousel.html',
   styleUrl: './service-carousel.scss'
 })
-export class ServiceCarousel {
+export class ServiceCarousel implements OnInit, OnDestroy {
+  @Input() title: string = 'Nuestros Servicios';
+  @Input() subtitle: string = 'Descubre nuestras soluciones completas de impresión 3D y diseño digital.';
+  @Input() autoPlay: boolean = true;
+  @Input() autoPlayInterval: number = 5000; // 5 segundos
+  @Input() pauseOnHover: boolean = true;
 
-  responsiveOptions: any[] | undefined;
+  public currentIndex = signal(0);
+  private isAnimating = signal(false);
+  private autoPlayTimer: number | null = null;
+  private isPaused = signal(false);
 
-  services = signal<Service[]>([
+  // Inyectar PLATFORM_ID para verificar si estamos en el navegador
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+
+  @Input() services = signal<Service[]>([
     {
       id: 1,
       title: 'Prototipado Rápido',
@@ -67,4 +78,149 @@ export class ServiceCarousel {
       price: 'Desde $75'
     }
   ]);
+
+  // Computed properties - Solo una tarjeta actual
+  currentService = computed(() => this.services()[this.currentIndex()]);
+  totalServices = computed(() => this.services().length);
+  canGoPrev = computed(() => this.totalServices() > 1);
+  canGoNext = computed(() => this.totalServices() > 1);
+
+  ngOnInit() {
+    if (isPlatformBrowser(this.platformId)) {
+      if (this.autoPlay && this.totalServices() > 1) {
+        this.startAutoPlay();
+      }
+    }
+  }
+
+  ngOnDestroy() {
+    this.stopAutoPlay();
+  }
+
+  // ===============================
+  // AUTOPLAY METHODS
+  // ===============================
+
+  private startAutoPlay() {
+    if (!isPlatformBrowser(this.platformId)) return;
+    if (!this.autoPlay || this.totalServices() <= 1) return;
+
+    this.stopAutoPlay();
+
+    this.autoPlayTimer = window.setInterval(() => {
+      if (!this.isPaused() && !this.isAnimating()) {
+        this.goToNext();
+      }
+    }, this.autoPlayInterval);
+  }
+
+  private stopAutoPlay() {
+    if (this.autoPlayTimer) {
+      clearInterval(this.autoPlayTimer);
+      this.autoPlayTimer = null;
+    }
+  }
+
+  private resetAutoPlay() {
+    if (this.autoPlay && isPlatformBrowser(this.platformId)) {
+      this.stopAutoPlay();
+      setTimeout(() => {
+        this.startAutoPlay();
+      }, 100);
+    }
+  }
+
+  // ===============================
+  // MOUSE EVENTS
+  // ===============================
+
+  onMouseEnter() {
+    if (this.pauseOnHover) {
+      this.isPaused.set(true);
+    }
+  }
+
+  onMouseLeave() {
+    if (this.pauseOnHover) {
+      this.isPaused.set(false);
+    }
+  }
+
+  // ===============================
+  // NAVIGATION METHODS
+  // ===============================
+
+  goToPrev() {
+    if (this.canGoPrev() && !this.isAnimating()) {
+      this.isAnimating.set(true);
+
+      // Navegación infinita hacia atrás
+      if (this.currentIndex() === 0) {
+        this.currentIndex.set(this.totalServices() - 1);
+      } else {
+        this.currentIndex.update(index => index - 1);
+      }
+
+      if (isPlatformBrowser(this.platformId)) {
+        setTimeout(() => this.isAnimating.set(false), 300);
+      } else {
+        this.isAnimating.set(false);
+      }
+
+      this.resetAutoPlay();
+    }
+  }
+
+  goToNext() {
+    if (this.canGoNext() && !this.isAnimating()) {
+      this.isAnimating.set(true);
+
+      // Navegación infinita hacia adelante
+      if (this.currentIndex() === this.totalServices() - 1) {
+        this.currentIndex.set(0);
+      } else {
+        this.currentIndex.update(index => index + 1);
+      }
+
+      if (isPlatformBrowser(this.platformId)) {
+        setTimeout(() => this.isAnimating.set(false), 300);
+      } else {
+        this.isAnimating.set(false);
+      }
+    }
+  }
+
+  goToSlide(index: number) {
+    if (index >= 0 && index < this.totalServices() && !this.isAnimating()) {
+      this.isAnimating.set(true);
+      this.currentIndex.set(index);
+
+      if (isPlatformBrowser(this.platformId)) {
+        setTimeout(() => this.isAnimating.set(false), 300);
+      } else {
+        this.isAnimating.set(false);
+      }
+
+      this.resetAutoPlay();
+    }
+  }
+
+  // ===============================
+  // UTILITY METHODS
+  // ===============================
+
+  getIndicators() {
+    return Array.from({ length: this.totalServices() }, (_, i) => i);
+  }
+
+  getTitleWords() {
+    return this.title.split(' ').map((word, index) => ({
+      word,
+      delay: index * 0.05
+    }));
+  }
+
+  isPlaying() {
+    return this.autoPlayTimer !== null;
+  }
 }
