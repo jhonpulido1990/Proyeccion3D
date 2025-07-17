@@ -53,14 +53,14 @@ export class TestimonialCarousel implements OnInit, OnDestroy {
   // Computed properties
   currentTestimonial = computed(() => this.testimonials()[this.currentIndex()]);
   totalTestimonials = computed(() => this.testimonials().length);
-  
+
   // Para navegación infinita, los botones siempre están habilitados (si hay más de 1 testimonio)
   canGoPrev = computed(() => this.totalTestimonials() > 1);
   canGoNext = computed(() => this.totalTestimonials() > 1);
 
   ngOnInit() {
-    // Solo iniciar autoplay si estamos en el navegador
-    if (isPlatformBrowser(this.platformId)) {
+    // Solo iniciar autoplay si window existe
+    if (typeof window !== 'undefined') {
       if (this.autoPlay && this.totalTestimonials() > 1) {
         this.startAutoPlay();
       }
@@ -75,14 +75,14 @@ export class TestimonialCarousel implements OnInit, OnDestroy {
   // ===============================
   // AUTOPLAY METHODS
   // ===============================
-  
+
   private startAutoPlay() {
-    // Verificar que estamos en el navegador antes de usar window
-    if (!isPlatformBrowser(this.platformId)) return;
+    // Verificar que window existe (estamos en el navegador)
+    if (typeof window === 'undefined') return;
     if (!this.autoPlay || this.totalTestimonials() <= 1) return;
-    
+
     this.stopAutoPlay(); // Asegurar que no haya múltiples timers
-    
+
     this.autoPlayTimer = window.setInterval(() => {
       if (!this.isPaused() && !this.isAnimating()) {
         this.goToNext();
@@ -98,9 +98,10 @@ export class TestimonialCarousel implements OnInit, OnDestroy {
   }
 
   private resetAutoPlay() {
-    if (this.autoPlay && isPlatformBrowser(this.platformId)) {
+    if (typeof window === 'undefined') return;
+    if (this.autoPlay) {
       this.stopAutoPlay();
-      // Usar setTimeout solo en el navegador
+      // Usar setTimeout solo si window existe
       setTimeout(() => {
         this.startAutoPlay();
       }, 100);
@@ -110,7 +111,7 @@ export class TestimonialCarousel implements OnInit, OnDestroy {
   // ===============================
   // MOUSE EVENTS (HOVER)
   // ===============================
-  
+
   onMouseEnter() {
     if (this.pauseOnHover) {
       this.isPaused.set(true);
@@ -126,25 +127,25 @@ export class TestimonialCarousel implements OnInit, OnDestroy {
   // ===============================
   // NAVIGATION METHODS
   // ===============================
-  
+
   goToPrev() {
     if (this.canGoPrev() && !this.isAnimating()) {
       this.isAnimating.set(true);
-      
+
       // Si estamos en el primer elemento (índice 0), vamos al último
       if (this.currentIndex() === 0) {
         this.currentIndex.set(this.totalTestimonials() - 1);
       } else {
         this.currentIndex.update(index => index - 1);
       }
-      
+
       // Usar setTimeout solo en el navegador
       if (isPlatformBrowser(this.platformId)) {
         setTimeout(() => this.isAnimating.set(false), 300);
       } else {
         this.isAnimating.set(false);
       }
-      
+
       // Resetear autoplay solo si fue interacción manual
       this.resetAutoPlay();
     }
@@ -153,14 +154,14 @@ export class TestimonialCarousel implements OnInit, OnDestroy {
   goToNext() {
     if (this.canGoNext() && !this.isAnimating()) {
       this.isAnimating.set(true);
-      
+
       // Si estamos en el último elemento, vamos al primero
       if (this.currentIndex() === this.totalTestimonials() - 1) {
         this.currentIndex.set(0);
       } else {
         this.currentIndex.update(index => index + 1);
       }
-      
+
       // Usar setTimeout solo en el navegador
       if (isPlatformBrowser(this.platformId)) {
         setTimeout(() => this.isAnimating.set(false), 300);
@@ -174,14 +175,14 @@ export class TestimonialCarousel implements OnInit, OnDestroy {
     if (index >= 0 && index < this.totalTestimonials() && !this.isAnimating()) {
       this.isAnimating.set(true);
       this.currentIndex.set(index);
-      
+
       // Usar setTimeout solo en el navegador
       if (isPlatformBrowser(this.platformId)) {
         setTimeout(() => this.isAnimating.set(false), 300);
       } else {
         this.isAnimating.set(false);
       }
-      
+
       // Resetear autoplay al navegar manualmente
       this.resetAutoPlay();
     }
@@ -190,7 +191,7 @@ export class TestimonialCarousel implements OnInit, OnDestroy {
   // ===============================
   // UTILITY METHODS
   // ===============================
-  
+
   getIndicators() {
     return Array.from({ length: this.totalTestimonials() }, (_, i) => i);
   }
@@ -206,11 +207,11 @@ export class TestimonialCarousel implements OnInit, OnDestroy {
   // ===============================
   // CONTROL METHODS (OPCIONAL)
   // ===============================
-  
+
   // Método público para pausar/reanudar
   toggleAutoPlay() {
     if (!isPlatformBrowser(this.platformId)) return;
-    
+
     if (this.autoPlayTimer) {
       this.stopAutoPlay();
     } else {
