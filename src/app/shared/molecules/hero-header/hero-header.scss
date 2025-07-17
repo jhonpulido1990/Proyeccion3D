@@ -1,6 +1,17 @@
 @use '../../../../assets/styles/variables' as vars;
 @use '../../../../assets/styles/mixins' as mixins;
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px); // Animación desde abajo
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .page-hero {
   position: relative;
   padding: 6rem 0;
@@ -25,7 +36,7 @@
   }
 
   &--simple {
-    background-color: #0f172a;
+    background-color: vars.color('black3');
     color: vars.color('white1');
   }
 
@@ -35,6 +46,22 @@
 
   &--text-center {
     text-align: center;
+  }
+
+  // Animación fade-in
+  &__fade-in {
+    opacity: 0;
+    transform: translateY(20px); // Animación desde abajo
+    animation: fadeIn vars.$transitionDuration vars.$transitionEasing;
+    animation-fill-mode: forwards;
+
+    @include mixins.mobile-only() {
+      animation-duration: 1s; // Duración en móvil
+    }
+
+    @include mixins.tablet-up() {
+      animation-duration: 2s; // Duración en tablet y desktop
+    }
   }
 
   // Elementos base
