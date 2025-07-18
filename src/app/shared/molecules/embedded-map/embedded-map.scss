@@ -300,7 +300,10 @@
       animation: none;
     }
 
-    transition: none;
+    // Envuelve en & {} para el nuevo comportamiento
+    & {
+      transition: none;
+    }
 
     &:hover {
       transform: none;
