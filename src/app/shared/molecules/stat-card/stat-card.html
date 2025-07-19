@@ -1,0 +1,8 @@
+<div class="stat-card" [style.animation-delay]="animationDelay() + 's'">
+  <div class="stat-card__icon-container">
+    <i [class]="'bi ' + stat().icon + ' stat-card__icon'"></i>
+  </div>
+
+  <h3 class="stat-card__value">{{ stat().value }}</h3>
+  <p class="stat-card__label">{{ stat().label }}</p>
+</div>
