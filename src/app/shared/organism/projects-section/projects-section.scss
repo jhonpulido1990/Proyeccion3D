@@ -1,0 +1,219 @@
+@use '../../../../assets/styles/variables' as vars;
+@use '../../../../assets/styles/mixins' as mixins;
+
+.projects-section {
+  // Mobile First - Base styles
+  background: vars.color(white1);
+  padding: vars.$spacing-xxl 0;
+
+  @include mixins.tablet-up() {
+    padding: 6rem 0;
+  }
+
+  @include mixins.desktop-up() {
+    padding: 8rem 0;
+  }
+
+  // BEM Elements
+  &__container {
+    max-width: vars.$container-max-width;
+    margin: 0 auto;
+    padding: vars.$padding-box;
+  }
+
+  &__tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: vars.$spacing-xxl;
+
+    @include mixins.tablet-up() {
+      margin-bottom: 3rem;
+    }
+  }
+
+  &__tabs-container {
+    overflow-x: auto;
+    padding-bottom: vars.$spacing-xs;
+    
+    // Ocultar scrollbar pero mantener funcionalidad
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__tabs-list {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: max-content;
+    gap: vars.$spacing-xs;
+    background: vars.color(bg-gray1);
+    padding: vars.$spacing-xs;
+    border-radius: vars.$borderRadius;
+    width: auto;
+    min-width: max-content;
+
+    @include mixins.mobile-only() {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      
+      & > * {
+        scroll-snap-align: center;
+        flex-shrink: 0;
+      }
+    }
+
+    @include mixins.tablet-up() {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      width: auto;
+    }
+  }
+
+  &__content {
+    position: relative;
+  }
+
+  &__tab-panel {
+    outline: none;
+    
+    &:focus-visible {
+      @include mixins.focused();
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: vars.$spacing-xl;
+
+    @include mixins.mobile-up() {
+      grid-template-columns: repeat(2, 1fr);
+      gap: vars.$spacing-lg;
+    }
+
+    @include mixins.desktop-up() {
+      grid-template-columns: repeat(3, 1fr);
+      gap: vars.$spacing-xl;
+    }
+  }
+
+  &__project {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideInUp 0.6s ease-out both;
+  }
+
+  &__empty {
+    text-align: center;
+    padding: vars.$spacing-xxl 0;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  &__empty-icon {
+    font-size: 3rem;
+    color: vars.color(gray4);
+    margin-bottom: vars.$spacing-lg;
+
+    i {
+      display: block;
+    }
+  }
+
+  &__empty-title {
+    font-size: vars.$font-size-text;
+    font-weight: 600;
+    color: vars.color(gray7);
+    margin: 0 0 vars.$spacing-sm 0;
+
+    @include mixins.tablet-up() {
+      font-size: 1.25rem;
+    }
+  }
+
+  &__empty-description {
+    font-size: vars.$font-size-sm;
+    color: vars.color(gray6);
+    line-height: 1.5;
+    margin: 0;
+
+    @include mixins.tablet-up() {
+      font-size: vars.$font-size-text;
+    }
+  }
+
+  // Loading state
+  &--loading {
+    .projects-section__project {
+      opacity: 0.6;
+    }
+  }
+}
+
+// Keyframes
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Responsive specific adjustments
+@include mixins.mobile-only() {
+  .projects-section {
+    &__tabs-list {
+      padding: vars.$spacing-xs vars.$spacing-sm;
+    }
+
+    &__grid {
+      gap: vars.$spacing-lg;
+    }
+
+    &__project {
+      &:nth-child(odd) {
+        animation-delay: 0s;
+      }
+      
+      &:nth-child(even) {
+        animation-delay: 0.1s;
+      }
+    }
+  }
+}
+
+// Reduced motion
+@media (prefers-reduced-motion: reduce) {
+  .projects-section {
+    &__project {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
+// Print styles
+@media print {
+  .projects-section {
+    &__tabs {
+      display: none;
+    }
+
+    &__grid {
+      display: block;
+    }
+
+    &__project {
+      page-break-inside: avoid;
+      margin-bottom: 2rem;
+    }
+  }
+}
