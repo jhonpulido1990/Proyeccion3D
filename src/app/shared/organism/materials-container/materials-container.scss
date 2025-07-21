@@ -1,0 +1,88 @@
+@use '../../../../assets/styles/variables' as vars;
+@use '../../../../assets/styles/mixins' as mixin;
+
+.o-materials {
+  background-color: vars.color('white1');
+  padding: vars.$spacing-xxl 0; // 48px arriba y abajo
+
+  &__container {
+    max-width: vars.$container-max-width;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 1.5rem; // 24px en mobile
+
+    @include mixin.tablet-up {
+      padding: 0 vars.$padding-box; // padding general tablet+
+    }
+  }
+
+  &__title {
+    font-size: 2rem; // ≈32px en mobile
+    font-weight: 700;
+    color: vars.color('black3');
+    margin-bottom: vars.$spacing-md; // 16px
+
+    @include mixin.tablet-up {
+      font-size: vars.$font-size-title-mobile; // 40px
+    }
+  }
+
+  &__description {
+    font-size: vars.$font-size-text-mobile; // 16px
+    color: vars.color('gray6');
+    margin-bottom: vars.$spacing-xxl; // 48px
+    max-width: 40rem; // evita que se estire demasiado
+    margin-left: auto;
+    margin-right: auto;
+
+    @include mixin.tablet-up {
+      font-size: 1.125rem; // 18px
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr; // mobile: 1 columna
+    gap: vars.$spacing-xl; // 32px entre categorías
+    justify-items: center;
+
+    @include mixin.tablet-up {
+      grid-template-columns: repeat(2, 1fr); // tablet: 2 columnas
+    }
+
+    @include mixin.desktop-up {
+      grid-template-columns: repeat(3, 1fr); // desktop: 3 columnas
+    }
+  }
+
+  &__category {
+    background-color: vars.color('white1');
+    border-radius: vars.$borderRadius; // 12px
+    box-shadow: 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+    padding: vars.$spacing-xl; // 32px
+    width: 100%;
+    max-width: 22rem; // ~352px
+    text-align: left;
+  }
+
+  &__category-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: vars.color('black3');
+    margin-bottom: vars.$spacing-md; // 16px
+  }
+
+  &__list {
+    list-style-type: disc;
+    padding-left: vars.$spacing-lg; // 24px
+    margin: 0;
+  }
+
+  &__item {
+    font-size: vars.$font-size-text-mobile; // 16px
+    color: vars.color('gray6');
+    margin-bottom: vars.$spacing-xs; // 4px
+  }
+}
+
+

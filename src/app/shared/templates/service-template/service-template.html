@@ -18,6 +18,31 @@
   </div>
 </section>
 
+<!-- This is the service template that includes a  grid of service cards -->
+<section>
+  <div class="o-service__grid-container">
+    <div class="o-service__grid-titleDescription">
+      <h2 class="o-service__grid-title">{{ gridTitle }}</h2>
+      <p class="o-service__grid-description">{{ gridDescription }}</p>
+
+    </div>
+    <div class="o-service__grid">
+      <app-services-cards *ngFor="let service of services; index as i"
+       [index]="i"
+       [title]="service.title"
+      [description]="service.description">
+      </app-services-cards>
+    </div>
+  </div>
+</section>
+
+<section>
+  <app-materials-container
+    [title]="materialContainer.title"
+    [description]="materialContainer.description"
+    [categories]="materialsCategories">
+  </app-materials-container>
+</section>
 
 <app-cta-section [title]="ctaData().title" [description]="ctaData().description" [backgroundImage]="ctaData().backgroundImage"
   [button]="ctaData().button" [highlightedWord]="ctaData().highlightedWord">

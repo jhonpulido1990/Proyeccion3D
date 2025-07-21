@@ -4,15 +4,16 @@ import { signal } from '@angular/core';
 import { HeroHeaderComponent } from "../../molecules/hero-header/hero-header";
 import { FeatureGrid } from '../../organism/feature-grid/feature-grid';
 import { CommonModule } from '@angular/common';
+import { ServicesCards } from '../../organism/services-cards/services-cards';
+import { MaterialsContainer } from '../../organism/materials-container/materials-container';
 
 @Component({
   selector: 'app-service-template',
-  imports: [CTASection, HeroHeaderComponent, FeatureGrid, CommonModule],
+  imports: [CTASection, HeroHeaderComponent, FeatureGrid, CommonModule, ServicesCards, MaterialsContainer],
   templateUrl: './service-template.html',
   styleUrl: './service-template.scss',
 })
 export class ServiceTemplate  {
-
 
   // Simple (Services)
   servicesHeroData = signal({
@@ -123,4 +124,99 @@ export class ServiceTemplate  {
     },
   ];
 
+
+  gridTitle = 'Our Process';
+  gridDescription =
+    'From concept to delivery, we ensure a smooth and efficient experience.';
+
+  // Array of service objects
+  services = [
+    {
+      title: '3D Modeling',
+      description:
+        'We create detailed and accurate 3D models for your projects, from prototypes to final products.',
+    },
+    {
+      title: 'Rapid Prototyping',
+      description:
+        'Quickly turn your ideas into reality with our fast and reliable prototyping services.',
+    },
+    {
+      title: 'Consultation',
+      description:
+        'We discuss your project requirements, timeline, and budget to determine the best approach.',
+    },
+    {
+      title: 'Custom 3D Printing',
+      description:
+        'Bring your designs to life with our custom 3D printing solutions tailored to your needs.',
+    },
+    {
+      title: 'Design & Optimization',
+      description:
+        'We review or create designs, optimizing them for 3D printing to ensure the best results.',
+    },
+    {
+      title: 'Production',
+      description:
+        'Your project is printed using the most appropriate technology and materials for your needs.',
+    },
+    {
+      title: 'Finishing & Delivery',
+      description:
+        'We apply any necessary post-processing and deliver your completed project on time.',
+    },
+    {
+      title: 'Finishing & Delivery',
+      description:
+        'We apply any necessary post-processing and deliver your completed project on time.',
+    },
+    {
+      title: 'Finishing & Delivery',
+      description:
+        'We apply any necessary post-processing and deliver your completed project on time.',
+    },
+    {
+      title: 'Finishing & Delivery',
+      description:
+        'We apply any necessary post-processing and deliver your completed project on time.',
+    },
+    {
+      title: 'Finishing & Delivery',
+      description:
+        'We apply any necessary post-processing and deliver your completed project on time.',
+    },
+    {
+      title: 'Finishing & Delivery',
+      description:
+        'We apply any necessary post-processing and deliver your completed project on time.',
+    },
+  ];
+
+
+   materialContainer ={
+  title:  'Materials We Use',
+  description: 'We work with a wide range of materials to bring your ideas to life.',
+   }
+
+  // Array of our materials objects
+  materialsCategories = [
+
+    {
+      name: 'Engineering Plastics',
+      items: [
+        'ABS (Acrylonitrile Butadiene Styrene)',
+        'PLA (Polylactic Acid)',
+        'PETG',
+      ],
+    },
+    {
+      name: 'High-Performance Materials',
+      items: ['Standard Resin', 'Tough Resin', 'Flexible Resin'],
+    },
+    {
+      name: 'Specialty Materials',
+      items: ['Stainless Steel', 'Aluminum', 'Titanium'],
+    },
+  ];
 }

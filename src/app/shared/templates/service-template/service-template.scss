@@ -1,0 +1,63 @@
+@use '../../../../assets/styles/variables' as vars;
+@use '../../../../assets/styles/mixins' as mixin;
+
+.o-service {
+  width: 100%;
+  padding: 0;
+
+
+  &__grid-container {
+    padding: vars.$spacing-xl 0;
+    background: vars.color('bg-gray1');
+
+    @include mixin.tablet-up {
+      padding: vars.$spacing-xxl 0;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr; // mobile: 1 columna
+
+    gap: vars.$spacing-lg; // 24px
+    margin: 0 auto;
+    max-width: vars.$container-max-width;
+    padding: vars.$padding-box;
+
+    @include mixin.tablet-up {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: vars.$spacing-xl;
+    }
+  }
+
+  &__grid-titleDescription {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: vars.$spacing-lg ;
+  }
+
+  &__grid-title {
+    font-size: 2rem;
+    line-height: 2rem;
+    font-weight: 700;
+    color: vars.color('black3'); // #1f2937
+    margin-bottom: vars.$spacing-md;
+
+    @include mixin.tablet-up {
+      font-size: 2.5rem;
+      line-height: 2.5rem;
+    }
+  }
+
+  &__grid-description {
+    font-size: vars.$font-size-text-mobile;
+    color: vars.color('gray7'); // #475569
+    max-width: 600px;
+
+    @include mixin.tablet-up {
+      font-size: 1.125rem; // 18px
+    }
+  }
+}

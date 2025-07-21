@@ -1,0 +1,58 @@
+
+@use '../../../../assets/styles/variables' as vars;
+@use '../../../../assets/styles/mixins.scss' as mixin;
+
+.m-service-card {
+  background: vars.color('white1'); // blanco principal
+  border-radius: vars.$borderRadius-lg; // 16px
+  padding: vars.$spacing-xl vars.$spacing-lg; // 32px 24px
+  text-align: left;
+  color: vars.color('black3'); // slate-800 (aprox)
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  // título base para mobile
+  &__title {
+    margin: vars.$spacing-xs 0 vars.$spacing-sm 0; // 4px 0 8px 0
+    font-size:1.25rem;// 16px
+    font-weight: 700;
+
+    @include mixin.tablet-up {
+      font-size: vars.$font-size-text-mobile;  // 20px
+    }
+  }
+
+  &__description {
+    color: vars.color('gray6'); // slate-600 aprox
+    font-size: 0.875rem; // 14px base para mobile
+
+    @include mixin.tablet-up {
+      font-size: vars.$font-size-text; // 20px
+    }
+  }
+
+  &__icon-number {
+    background-color: vars.color('black2'); // #0B0D39
+    color: vars.color('white1');
+    width: 3rem; // 48px
+    height: 3rem;
+    border-radius: 9999px; // círculo
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem; // 20px
+    font-weight: bold;
+  }
+
+  &__icon-img {
+    width: 40px;
+    height: 40px;
+
+    @include mixin.tablet-up {
+      width: 48px;
+      height: 48px;
+    }
+  }
+}
