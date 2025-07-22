@@ -12,6 +12,16 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+
+  &:hover {
+    transform: translateY(-8px); /* Mueve la card 8px hacia arriba */
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12); /* Opcional: mejora la sombra para dar profundidad */
+
+    .m-service-card__icon-number {
+      transform: scale(1.1); /* Agranda el círculo un 10% */
+    }
+  }
 
   // título base para mobile
   &__title {
@@ -20,7 +30,7 @@
     font-weight: 700;
 
     @include mixin.tablet-up {
-      font-size: vars.$font-size-text-mobile;  // 20px
+      font-size: vars.$font-size-text;  // 20px
     }
   }
 
@@ -29,7 +39,7 @@
     font-size: 0.875rem; // 14px base para mobile
 
     @include mixin.tablet-up {
-      font-size: vars.$font-size-text; // 20px
+      font-size: vars.$font-size-text-mobile; //16px
     }
   }
 
@@ -44,6 +54,7 @@
     justify-content: center;
     font-size: 1.25rem; // 20px
     font-weight: bold;
+    transition: transform 0.3s ease-in-out;
   }
 
   &__icon-img {
