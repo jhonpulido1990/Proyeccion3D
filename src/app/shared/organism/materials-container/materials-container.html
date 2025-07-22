@@ -1,4 +1,4 @@
-<section class="o-materials">
+<!-- <section class="o-materials">
   <div class="o-materials__container">
     <h2 class="o-materials__title">{{ title }}</h2>
     <p class="o-materials__description">{{ description }}</p>
@@ -6,6 +6,37 @@
     <div class="o-materials__grid">
       <div class="o-materials__category" *ngFor="let category of categories">
         <h3 class="o-materials__category-title">{{ category.name }}</h3>
+        <ul class="o-materials__list">
+          <li class="o-materials__item" *ngFor="let item of category.items">
+            {{ item }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section> -->
+<section class="o-materials">
+  <div class="o-materials__container">
+    <h2
+      class="o-materials__title"
+      pAnimateOnScroll
+      enterClass="animate-fade-in-up"> {{ title }}
+    </h2>
+
+    <p
+      class="o-materials__description"
+      pAnimateOnScroll
+      enterClass="animate-fade-in-up"
+      [style.animation-delay]="'200ms'"> {{ description }}
+    </p>
+
+    <div class="o-materials__grid">
+      <div
+        class="o-materials__category"
+        *ngFor="let category of categories; index as i"
+        pAnimateOnScroll
+        enterClass="animate-fade-in-up"
+        [style.animation-delay]="200 + (i * 150) + 'ms'"> <h3 class="o-materials__category-title">{{ category.name }}</h3>
         <ul class="o-materials__list">
           <li class="o-materials__item" *ngFor="let item of category.items">
             {{ item }}

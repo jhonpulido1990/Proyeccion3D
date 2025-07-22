@@ -1,5 +1,26 @@
 @use '../../../../assets/styles/variables' as vars;
 @use '../../../../assets/styles/mixins' as mixin;
+/* --- INICIO: Animación personalizada para el scroll --- */
+
+/* 1. Definimos los pasos de la animación (qué hace) */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px); /* Empieza 30px abajo y transparente */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* Termina en su posición final y opaco */
+  }
+}
+
+/* 2. Creamos la clase que usará pAnimateOnScroll */
+/* Esta clase aplica la animación que definimos arriba */
+.animate-fade-in-up {
+  animation: fadeInUp 0.7s ease-out forwards;
+}
+
+/* --- FIN: Animación personalizada para el scroll --- */
 
 .o-materials {
   background-color: vars.color('white1');

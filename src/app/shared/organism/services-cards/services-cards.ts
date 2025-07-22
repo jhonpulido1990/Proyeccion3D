@@ -1,8 +1,9 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-services-cards',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './services-cards.html',
   styleUrl: './services-cards.scss'
 })
