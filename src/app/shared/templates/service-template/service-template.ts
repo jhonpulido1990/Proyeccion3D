@@ -4,10 +4,12 @@ import { signal } from '@angular/core';
 import { HeroHeaderComponent } from "../../molecules/hero-header/hero-header";
 import { ServiceData } from '../../../core/models/interfaces/serviceData.interface';
 import { ServicesSectionItem } from "../../organism/services-section-item/services-section-item";
+import { ProcessData } from '../../../core/models/interfaces/Process.interface';
+import { ProcessSection } from "../../organism/process-section/process-section";
 
 @Component({
   selector: 'app-service-template',
-  imports: [CTASection, HeroHeaderComponent, ServicesSectionItem],
+  imports: [CTASection, HeroHeaderComponent, ServicesSectionItem, ProcessSection],
   templateUrl: './service-template.html',
   styleUrl: './service-template.scss'
 })
@@ -130,4 +132,37 @@ export class ServiceTemplate {
       ]
     }
   ]);
+
+  // En tu projects-template.ts o donde uses la sección
+  processData = signal<ProcessData>({
+    title: 'Nuestro Proceso',
+    subtitle: 'Del concepto a la entrega, aseguramos una experiencia fluida y eficiente.',
+    steps: [
+      {
+        id: 'consultation',
+        step: 1,
+        title: 'Consulta',
+        description: 'Discutimos los requisitos de tu proyecto, cronograma y presupuesto para determinar el mejor enfoque.'
+      },
+      {
+        id: 'design-optimization',
+        step: 2,
+        title: 'Diseño y Optimización',
+        description: 'Revisamos o creamos diseños, optimizándolos para impresión 3D para asegurar los mejores resultados.',
+        featured: true // Esta será la tarjeta destacada
+      },
+      {
+        id: 'production',
+        step: 3,
+        title: 'Producción',
+        description: 'Tu proyecto se imprime utilizando la tecnología y materiales más apropiados para tus necesidades.'
+      },
+      {
+        id: 'finishing-delivery',
+        step: 4,
+        title: 'Acabado y Entrega',
+        description: 'Aplicamos cualquier post-procesamiento necesario y entregamos tu proyecto completado a tiempo.'
+      }
+    ]
+  });
 }
