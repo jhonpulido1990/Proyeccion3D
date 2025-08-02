@@ -7,10 +7,12 @@ import { SectionHero } from '../../organism/section-hero/section-hero';
 import { signal } from '@angular/core';
 import { ServicesSection } from "../../organism/services-section/services-section";
 import { ServiceItemData } from '../../molecules/service-item/service-item';
+import { ClientsMarqueeSection } from '../../organism/clients-marquee-section/clients-marquee-section';
+import { ClientsSectionData } from '../../../core/models/interfaces/ClientData.interface';
 
 @Component({
   selector: 'app-home-template',
-  imports: [TestimonialCarousel, ServiceCarousel, HeroHeaderComponent, CTASection, SectionHero, ServicesSection],
+  imports: [TestimonialCarousel, ServiceCarousel, HeroHeaderComponent, CTASection, SectionHero, ServicesSection, ClientsMarqueeSection],
   templateUrl: './home-template.html',
   styleUrl: './home-template.scss'
 })
@@ -108,5 +110,85 @@ export class HomeTemplate {
       path: '/about',
       variant: 'primary' as const
     }
+  });
+
+  // Datos de clientes que confían en la empresa
+  clientsData = signal<ClientsSectionData>({
+    title: 'Clientes que Confían en Nosotros',
+    subtitle: 'Empresas líderes que han elegido nuestros servicios de impresión 3D para sus proyectos más importantes',
+    clients: [
+      {
+        id: 'ecoplantas',
+        name: 'Ecoplantas',
+        logo: 'assets/images/logos/ecoplantas.png',
+        alt: 'Logo Ecoplantas'
+      },
+      {
+        id: 'industrias-tiagho',
+        name: 'Industrias Tiagho',
+        logo: 'assets/images/logos/industriasTiagho.png',
+        alt: 'Logo Industrias Tiagho'
+      },
+      {
+        id: 'interpesaje',
+        name: 'Interpesaje',
+        logo: 'assets/images/logos/interpesaje.png',
+        alt: 'Logo Interpesaje'
+      },
+      {
+        id: 'interpesaje1',
+        name: 'Interpesaje División Industrial',
+        logo: 'assets/images/logos/interpesaje1.png',
+        alt: 'Logo Interpesaje División Industrial'
+      },
+      {
+        id: 'p3d',
+        name: 'P3D',
+        logo: 'assets/images/logos/P3D.png',
+        alt: 'Logo P3D'
+      },
+      {
+        id: 'p3d-original',
+        name: 'P3D Original',
+        logo: 'assets/images/logos/P3DOriginal.png',
+        alt: 'Logo P3D Original'
+      },
+      {
+        id: 'payan-cia',
+        name: 'Payán & CIA',
+        logo: 'assets/images/logos/Payan_CIA.png',
+        alt: 'Logo Payán & CIA'
+      },
+      {
+        id: 'pci',
+        name: 'PCI',
+        logo: 'assets/images/logos/PCI.png',
+        alt: 'Logo PCI'
+      },
+      {
+        id: 'pimec',
+        name: 'Pimec',
+        logo: 'assets/images/logos/pimec.png',
+        alt: 'Logo Pimec'
+      },
+      {
+        id: 'super',
+        name: 'Super',
+        logo: 'assets/images/logos/Super.png',
+        alt: 'Logo Super'
+      },
+      {
+        id: 'ternium',
+        name: 'Ternium',
+        logo: 'assets/images/logos/Ternium.png',
+        alt: 'Logo Ternium'
+      },
+      {
+        id: 'wtt',
+        name: 'WTT',
+        logo: 'assets/images/logos/Wtt.png',
+        alt: 'Logo WTT'
+      }
+    ]
   });
 }
