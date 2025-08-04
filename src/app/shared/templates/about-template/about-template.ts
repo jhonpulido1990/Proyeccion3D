@@ -85,7 +85,7 @@ export class AboutTemplate {
     {
       id: 'clients',
       icon: 'bi-people',
-      value: '500+',
+      value: '500',
       label: 'Clientes Satisfechos'
     },
     {
@@ -97,13 +97,13 @@ export class AboutTemplate {
     {
       id: 'experience',
       icon: 'bi-clock',
-      value: '10+',
+      value: '10',
       label: 'Años de Experiencia'
     },
     {
       id: 'projects',
       icon: 'bi-lightbulb',
-      value: '2,500+',
+      value: '2500',
       label: 'Proyectos Completados'
     }
   ]);

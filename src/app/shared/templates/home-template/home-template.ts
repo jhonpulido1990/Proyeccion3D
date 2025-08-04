@@ -22,12 +22,8 @@ export class HomeTemplate {
     title: 'Proyección 3D BIC',
     highlightedWords: ['3D'],
     subtitle: 'Transformando Ideas en Realidad',
-    description: 'Desde el concepto hasta la creación, ofrecemos soluciones de impresión 3D de vanguardia para diseñadores, ingenieros y empresas.',
+    description: 'Somos especialistas en ingeniería inversa, modelado 3D y soluciones industriales. Ofrecemos escaneo láser, impresión 3D, análisis por elementos finitos (FEA) y diseño de plantas. Servicios en Bogotá, Medellín y toda Colombia.',
     heroImage: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?q=80&w=1000&auto=format&fit=crop',
-    buttons: [
-      { label: 'Nuestros Servicios', path: '/services', variant: 'primary' as const, icon: 'lucide-arrow-right' },
-      { label: 'Ver Portafolio', path: '/portfolio', variant: 'secondary' as const }
-    ],
     config: {
       layout: 'hero-with-image' as const,
       textAlign: 'left' as const
