@@ -27,55 +27,87 @@ export class ServiceCarousel implements OnInit, OnDestroy {
   @Input() services = signal<Service[]>([
     {
       id: 1,
-      title: 'Prototipado Rápido',
-      description: 'Creación rápida de prototipos funcionales para validar diseños y conceptos antes de la producción final.',
-      image: 'assets/images/services/prototipado-rapido.jpg',
+      title: 'Escaneo 3D e Ingeniería Inversa',
+      description: 'Digitalizamos piezas físicas con escáneres 3D de alta precisión para crear modelos CAD editables.',
+      image: 'assets/images/service/Ingenieria-inversa.webp',
       features: [
-        'Entrega en 24-48 horas',
-        'Múltiples materiales disponibles',
-        'Alta precisión dimensional',
-        'Acabados personalizados'
+        'Reemplazo de piezas obsoletas sin planos',
+        'Control de calidad (comparativa CAD vs. físico)',
+        'Optimización de componentes existentes',
       ],
-      price: 'Desde $50'
+      price: 'Cotización personalizada'
     },
     {
       id: 2,
-      title: 'Impresión 3D Industrial',
-      description: 'Soluciones de impresión 3D para producción industrial con materiales de alta resistencia.',
-      image: 'assets/images/services/impresion-industrial.jpg',
+      title: 'Simulación FEA (Análisis por Elementos Finitos)',
+      description: 'Realizamos análisis por elementos finitos para evaluar el comportamiento estructural de tus diseños bajo condiciones de carga específicas.',
+      image: 'assets/images/service/Simulacion-FEA.webp',
       features: [
-        'Materiales certificados',
-        'Producción en serie',
-        'Control de calidad riguroso',
-        'Soporte técnico especializado'
+        'Reportes de factores de seguridad',
+        'Animaciones de deformación crítica',
+        'Recomendaciones de mejora de diseño',
       ],
       price: 'Cotización personalizada'
     },
     {
       id: 3,
-      title: 'Modelado y Diseño 3D',
-      description: 'Servicio completo de modelado y diseño 3D para convertir ideas en modelos listos para imprimir.',
-      image: 'https://external-preview.redd.it/qW5sXZSe_7w815bbdJh3mwhzBxyEdK13fFyRs3_8ZdQ.jpg?width=1080&crop=smart&auto=webp&s=b80a699978b4883b57f04855ad5be4cd26a917e8',
+      title: 'Diseño Mecánico Personalizado',
+      description: 'Conceptos 3D optimizados para fabricación (DFM), incluyendo planos técnicos y selección de materiales.',
+      image: 'assets/images/service/Diseño-mecanico.jpg',
       features: [
         'Diseño desde cero',
-        'Optimización para impresión',
-        'Renderizado fotorrealista',
-        'Revisiones ilimitadas'
+        'Máquinas especiales (ISO 12100)',
+        'Sistemas de piping (B31.3)',
+        'Herrajes estructurales (AISC 360)'
       ],
-      price: 'Desde $100'
+      price: 'Cotización personalizada'
     },
     {
       id: 4,
-      title: 'Escaneado 3D',
-      description: 'Captura digital precisa de objetos físicos para crear modelos 3D exactos.',
-      image: 'assets/images/services/escaneado-3d.jpg',
+      title: 'Diseño de Plantas Industriales',
+      description: 'Layouts optimizados con metodología Lean Manufacturing, Documentación "As Built" actualizable.',
+      image: 'assets/images/service/Plantas-industriales.png',
       features: [
-        'Alta resolución',
-        'Procesamiento rápido',
-        'Múltiples formatos de salida',
-        'Ingeniería inversa'
+        'Rutas de mantenimiento y evacuación',
+        'Interferencias eléctricas/hidráulicas',
+        'Análisis de flujos de materiales',
       ],
-      price: 'Desde $75'
+      price: 'Cotización personalizada'
+    },
+    {
+      id: 5,
+      title: 'Diagramas P&ID y Piping',
+      description: 'Elaboramos documentación técnica para sistemas de tuberías e instrumentación, cumpliendo normas ASME/ISO.',
+      image: 'assets/images/service/Diagramas.png',
+      features: [
+        'Diagramas inteligentes con datos de instrumentación',
+        'Isométricos espoolable',
+        'Listas de materiales (BOM) vinculadas',
+      ],
+      price: 'Cotización personalizada'
+    },
+    {
+      id: 6,
+      title: 'Impresión 3D Profesional',
+      description: 'Ofrecemos servicios de impresión 3D de alta calidad para prototipos y producción en serie.',
+      image: 'assets/images/service/Impresora-3D.jpg',
+      features: [
+        'Impresión en múltiples materiales',
+        'Acabados personalizados',
+      ],
+      price: 'Cotización personalizada'
+    },
+    {
+      id: 7,
+      title: 'Planos Estructurales y "As Built"',
+      description: 'Elaboramos planos estructurales y "as built" para proyectos de ingeniería, asegurando precisión y cumplimiento normativo.',
+      image: 'assets/images/service/Planos-estructurales.webp',
+      features: [
+        'Actualización de planos para ampliaciones',
+        'Documentación para licencias de construcción',
+        'Detalles de conexiones steel-to-steel',
+      ],
+      price: 'Cotización personalizada'
     }
   ]);
 

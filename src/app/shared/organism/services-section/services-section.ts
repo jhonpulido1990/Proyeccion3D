@@ -12,7 +12,7 @@ import { ServiceItem, ServiceItemData } from '../../molecules/service-item/servi
 export class ServicesSection {
   services = input.required<ServiceItemData[]>();
   ctaText = input<string>('Ver Todos los Servicios');
-  ctaLink = input<string>('/services');
+  ctaLink = input<string>('/service');
   sectionTitle = input<string>('Nuestros Servicios');
   sectionSubtitle = input<string>('Desde prototipado rápido hasta producción en serie, ofrecemos soluciones completas de impresión 3D adaptadas a tus necesidades.');
 }

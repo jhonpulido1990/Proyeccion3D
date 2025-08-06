@@ -24,6 +24,10 @@ export class HomeTemplate {
     subtitle: 'Transformando Ideas en Realidad',
     description: 'Somos especialistas en ingeniería inversa, modelado 3D y soluciones industriales. Ofrecemos escaneo láser, impresión 3D, análisis por elementos finitos (FEA) y diseño de plantas. Servicios en Bogotá, Medellín y toda Colombia.',
     heroImage: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?q=80&w=1000&auto=format&fit=crop',
+    buttons: [
+      { label: 'Nuestros Servicios', path: '/service', variant: 'primary' as const, icon: 'pi pi-arrow-right' },
+      { label: 'Ver Portafolio', path: '/project', variant: 'secondary' as const }
+    ],
     config: {
       layout: 'hero-with-image' as const,
       textAlign: 'left' as const
@@ -32,60 +36,66 @@ export class HomeTemplate {
 
   myServicesArray = signal<ServiceItemData[]>([
     {
-      id: 'prototipado-rapido',
-      title: 'Prototipado Rápido',
-      description: 'Convierte conceptos en prototipos físicos en días, no semanas. Perfecto para probar forma, ajuste y función antes de la producción final.',
+      id: 'Escaneo 3D e Ingeniería Inversa',
+      title: 'Escaneo 3D e Ingeniería Inversa',
+      description: 'Digitalizamos piezas físicas con escáneres 3D de alta precisión para crear modelos CAD editables. Ideal para replicar componentes obsoletos, mejorar diseños o documentar equipos.',
       icon: 'bi bi-printer',
       linkText: 'Saber Más',
-      linkUrl: '/services/prototipado-rapido'
+      linkUrl: '/service'
     },
     {
-      id: 'impresion-multi-material',
-      title: 'Impresión Multi-Material',
-      description: 'Crea piezas complejas con nuestras capacidades avanzadas de impresión multi-material, combinando diferentes propiedades mecánicas en una sola impresión.',
-      icon: 'bi bi-layers',
+      id: 'Simulación FEA (Análisis por Elementos Finitos)',
+      title: 'Simulación FEA (Análisis por Elementos Finitos)',
+      description: 'Realizamos análisis por elementos finitos (FEA) para evaluar el comportamiento estructural de tus diseños bajo condiciones de carga específicas.',
+      icon: 'bi bi-graph-up',
       linkText: 'Saber Más',
-      linkUrl: '/services/impresion-multi-material'
+      linkUrl: '/service'
     },
     {
-      id: 'produccion-serie',
-      title: 'Producción en Serie',
-      description: 'Escala desde el prototipo hasta la producción con calidad consistente y precios competitivos para lotes pequeños y medianos.',
+      id: 'Diseño Mecánico Personalizado',
+      title: 'Diseño Mecánico Personalizado',
+      description: 'Desarrollamos componentes y sistemas mecánicos desde cero, optimizados para fabricación. Incluye planos técnicos, tolerancias y selección de materiales.',
       icon: 'bi bi-lightning',
       linkText: 'Saber Más',
-      linkUrl: '/services/produccion-serie'
+      linkUrl: '/service'
     },
     {
-      id: 'diseno-optimizacion',
-      title: 'Diseño y Optimización',
-      description: 'Optimizamos tus diseños para impresión 3D, reduciendo material, tiempo de impresión y mejorando la resistencia estructural.',
+      id: 'Diseño de Plantas Industriales',
+      title: 'Diseño de Plantas Industriales',
+      description: 'Modelamos layouts 2D/3D para optimizar flujos de producción, espacios y seguridad. Servicios completos: desde distribución de equipos hasta rutas de evacuación.',
       icon: 'bi bi-gear',
       linkText: 'Saber Más',
-      linkUrl: '/services/diseno-optimizacion'
+      linkUrl: '/service'
     },
     {
-      id: 'materiales-especializados',
-      title: 'Materiales Especializados',
-      description: 'Amplia gama de materiales técnicos: PLA, ABS, PETG, TPU, materiales conductivos, biodegradables y de alta resistencia.',
+      id: 'Diagramas P&ID y Piping',
+      title: 'Diagramas P&ID y Piping',
+      description: 'Elaboramos documentación técnica para sistemas de tuberías e instrumentación, cumpliendo normas ASME/ISO. Incluye tags, flujogramas y especificaciones.',
       icon: 'bi bi-palette',
       linkText: 'Saber Más',
-      linkUrl: '/services/materiales-especializados'
+      linkUrl: '/service'
     },
     {
-      id: 'post-procesamiento',
-      title: 'Post-Procesamiento',
-      description: 'Servicios completos de acabado: lijado, pintura, ensamblaje, tratamientos químicos y acabados profesionales.',
+      id: 'Impresión 3D Profesional',
+      title: 'Impresión 3D Profesional',
+      description: 'Manufactura aditiva en materiales técnicos (ABS, Nylon, resinas industriales). Prototipos funcionales, piezas finales y herramientas de producción.',
       icon: 'bi bi-tools',
       linkText: 'Saber Más',
-      linkUrl: '/services/post-procesamiento'
+      linkUrl: '/service'
+    },
+    {
+      id: 'Planos Estructurales y "As Built"',
+      title: 'Planos Estructurales y "As Built"',
+      description: 'Elaboramos planos estructurales y "as built" para proyectos de ingeniería, asegurando precisión y cumplimiento normativo.',
+      icon: 'bi bi-brush',
+      linkText: 'Saber Más',
+      linkUrl: '/service'
     }
   ]);
 
-
-
   ctaData = signal({
     title: '¿Listo para Dar Vida a tus Ideas?',
-    description: 'Contáctanos hoy para discutir tu proyecto y descubrir cómo nuestras soluciones de impresión 3D pueden ayudarte a innovar más rápido.',
+    description: 'Contáctanos hoy para discutir tu proyecto y descubrir cómo nuestras soluciones Integrales pueden ayudarte a innovar más rápido.',
     backgroundImage: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1200&auto=format&fit=crop',
     highlightedWord: 'Ideas',
     button: {
@@ -97,8 +107,8 @@ export class HomeTemplate {
   });
 
   aboutHeroData = signal({
-    title: 'Transformando Ideas En Realidad',
-    description: 'Somos un equipo de diseñadores e ingenieros apasionados dedicados a expandir los límites de lo posible con la tecnología de impresión 3D. Con años de experiencia, hemos ayudado a cientos de clientes a dar vida a sus visiones.',
+    title: 'Expertos en Soluciones 3D para la Industria',
+    description: 'Más de 5 años transformando desafíos industriales con tecnología de punta. Nuestro equipo de ingenieros certificados ha desarrollado +150 modelos 3D, 40 análisis FEA y 25 plantas industriales para empresas como Ternium y Super.',
     image: 'https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?q=80&w=2000&auto=format&fit=crop',
     imageAlt: 'Equipo de trabajo colaborando en impresión 3D',
     button: {
