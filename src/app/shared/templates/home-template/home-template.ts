@@ -107,7 +107,7 @@ export class HomeTemplate {
   });
 
   aboutHeroData = signal({
-    title: 'Expertos en Soluciones 3D para la Industria',
+    title: 'Expertos en Soluciones para la Industria',
     description: 'Más de 5 años transformando desafíos industriales con tecnología de punta. Nuestro equipo de ingenieros certificados ha desarrollado +150 modelos 3D, 40 análisis FEA y 25 plantas industriales para empresas como Ternium y Super.',
     image: 'https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?q=80&w=2000&auto=format&fit=crop',
     imageAlt: 'Equipo de trabajo colaborando en impresión 3D',

@@ -7,7 +7,7 @@ import { Component, input } from '@angular/core';
   styleUrl: './quote-section.scss'
 })
 export class QuoteSection {
-  quote = input<string>('"La impresión 3D no es solo una tecnología, es una revolución en la forma en que diseñamos, creamos y fabricamos."');
-  author = input<string>('Sara Jiménez, CEO y Fundadora');
-  backgroundImage = input<string>('https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=400&auto=format&fit=crop');
+  quote = input<string>('"En un país de manufactura, ser los arquitectos del futuro digital es nuestro legado."');
+  author = input<string>('Andres Mosca, CEO y Fundador');
+  backgroundImage = input<string>('assets/images/Andres-Mosca.png');
 }

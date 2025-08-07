@@ -22,7 +22,7 @@ export class AboutTemplate {
   aboutHeroData = signal({
     title: 'Sobre Nuestra Empresa',
     highlightedWords: ['Empresa'],
-    description: 'Estamos en una misión para revolucionar la fabricación a través de soluciones innovadoras de impresión 3D.',
+    description: 'En Proyección 3D, ayudamos a empresas a modernizar sus operaciones',
     config: {
       layout: 'hero-with-background' as const,
       backgroundImage: 'https://images.unsplash.com/photo-1581093458791-9d2b88c0ed60?q=80&w=2000&auto=format&fit=crop',
@@ -57,10 +57,10 @@ export class AboutTemplate {
       linkedin: 'https://linkedin.com/in/sara-jimenez'
     },
     {
-      id: 'miguel-chen',
-      name: 'Miguel Chen',
-      position: 'Director de Diseño',
-      image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=400&auto=format&fit=crop',
+      id: 'andres-mosca',
+      name: 'Andres Mosca',
+      position: 'CEO y Fundador',
+      image: 'assets/images/Andres-Mosca.png',
       bio: 'Especialista en diseño industrial y prototipado rápido.',
       email: 'miguel@proyeccion3dbic.com'
     },
@@ -112,17 +112,17 @@ export class AboutTemplate {
     {
       id: 'innovation',
       title: 'Innovación',
-      description: 'Exploramos continuamente nuevas tecnologías y técnicas para ampliar los límites de lo que es posible con la impresión 3D.'
+      description: 'Fomentamos un entorno donde la creatividad y la innovación tecnológica prosperan, impulsando soluciones de vanguardia para nuestros clientes.'
     },
     {
       id: 'quality',
       title: 'Calidad',
-      description: 'Mantenemos rigurosos estándares de control de calidad para garantizar que cada impresión cumpla con nuestras exigentes especificaciones.'
+      description: 'Nos comprometemos a entregar productos y servicios de la más alta calidad, asegurando la satisfacción total del cliente en cada proyecto.'
     },
     {
       id: 'sustainability',
       title: 'Sostenibilidad',
-      description: 'Estamos comprometidos con prácticas ambientalmente responsables, desde la selección de materiales hasta la reducción de residuos.'
+      description: 'Adoptamos prácticas sostenibles en todas nuestras operaciones, minimizando nuestro impacto ambiental y promoviendo un futuro más verde.'
     }
   ]);
 }
