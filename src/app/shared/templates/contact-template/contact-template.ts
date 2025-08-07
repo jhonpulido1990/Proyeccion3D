@@ -13,8 +13,8 @@ import { ContactLocationSection } from "../../organism/contact-location-section/
 export class ContactTemplate {
   // Contact
   contactHeroData = signal({
-    title: 'Get In Touch',
-    description: 'Have a project in mind? We\'d love to hear from you.',
+    title: 'Ponte en Contacto',
+    description: 'Tienes un proyecto en mente? Nos encantaría saber de ti.',
     config: {
       layout: 'simple' as const,
       backgroundColor: '#0f172a',
@@ -28,24 +28,24 @@ export class ContactTemplate {
         icon: 'pi-map-marker',
         title: 'Nuestra Ubicación',
         description: 'Visítanos en nuestra oficina',
-        lines: ['123 Innovation Drive', 'Suite 400', 'San Francisco, CA 94107']
+        lines: ['Cl. 3a #4-24', 'Villamaría', 'Caldas, Colombia']
       },
       {
         icon: 'pi-envelope',
         title: 'Envíanos un Email',
         description: 'Envíanos un correo electrónico',
-        lines: ['info@3dprintingcompany.com', 'sales@3dprintingcompany.com']
+        lines: ['productividadydiseno3d@gmail.com', 'proyeccion3d.admi@gmail.com']
       },
       {
         icon: 'pi-phone',
         title: 'Llámanos',
         description: 'Danos una llamada',
-        lines: ['+1 (415) 555-0123', 'Lunes - Viernes, 9am - 6pm PST']
+        lines: ['+57 316 5882153', 'Lunes - Viernes, 7am - 6pm COT']
       }
     ],
     businessHours: [
-      { day: 'Lunes - Viernes', hours: '9:00 AM - 6:00 PM' },
-      { day: 'Sábado', hours: '10:00 AM - 4:00 PM' },
+      { day: 'Lunes - Viernes', hours: '7:00 AM - 6:00 PM' },
+      { day: 'Sábado', hours: 'Cerrado' },
       { day: 'Domingo', hours: 'Cerrado' }
     ],
     serviceOptions: [

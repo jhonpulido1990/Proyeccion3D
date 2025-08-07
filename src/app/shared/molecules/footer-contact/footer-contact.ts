@@ -9,11 +9,11 @@ export class FooterContact {
   contactInfo = {
     title: 'Contáctanos',
     address: {
-      street: 'Calle Innovación 123',
-      suite: 'Suite 400',
-      city: 'Ciudad de México, CP 12345'
+      street: 'Calle 3 A #4-24',
+      suite: 'Villamaría',
+      city: 'Caldas, Colombia'
     },
-    phone: '+52 (55) 5555-0123',
-    email: 'info@proyeccion3dbic.com'
+    phone: '+57 316 5882153',
+    email: 'productividadydiseno3d@gmail.com'
   };
 }
