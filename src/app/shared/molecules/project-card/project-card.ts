@@ -15,10 +15,14 @@ export class ProjectCard {
   getCategoryLabel(category: ProjectCategory): string {
     const labels: Record<ProjectCategory, string> = {
       'all': 'Todos',
-      'product': 'Diseño de Producto',
-      'automotive': 'Automotriz',
-      'medical': 'Médico',
-      'architecture': 'Arquitectura'
+      'reverse-engineering': 'Ingeniería Inversa & Escaneo 3D',
+      'fea': 'Análisis de Elementos Finitos',
+      'industrial-design': 'Diseño Industrial',
+      'mechanical-design': 'Diseño Mecánico',
+      'piping-engineering': 'Ingeniería de Tuberías',
+      '3d-printing': 'Impresión 3D',
+      'structural-engineering': 'Ingeniería Estructural',
+      'conceptual-engineering': 'Ingeniería Conceptual y Básica'
     };
     return labels[category] || category;
   }
