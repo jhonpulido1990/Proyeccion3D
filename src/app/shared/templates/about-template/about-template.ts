@@ -48,35 +48,32 @@ export class AboutTemplate {
   // En tu home-template.ts o donde uses la sección
   teamMembers = signal<TeamMemberData[]>([
     {
-      id: 'sara-jimenez',
-      name: 'Sara Jiménez',
-      position: 'CEO y Fundadora',
-      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400&auto=format&fit=crop',
-      bio: 'Líder visionaria con más de 10 años en tecnología de fabricación.',
-      email: 'sara@proyeccion3dbic.com',
-      linkedin: 'https://linkedin.com/in/sara-jimenez'
+      id: 'sebastian',
+      name: 'Sebastián',
+      position: 'Ingeniero de Proyectos',
+      image: 'assets/images/Sebastian.jpeg',
+      bio: 'Ingeniero mecánico especializado en procesos de laminación, modelado 3D e ingeniería inversa. Enfocado en la atención al cliente y desarrollo de soluciones técnicas innovadoras.',
     },
     {
       id: 'andres-mosca',
-      name: 'Andres Mosca',
+      name: 'Andrés Mosca',
       position: 'CEO y Fundador',
       image: 'assets/images/Andres-Mosca.png',
-      bio: 'Especialista en diseño industrial y prototipado rápido.',
-      email: 'miguel@proyeccion3dbic.com'
+      bio: 'CEO con más de 10 años de experiencia en manufactura aditiva y transformación digital. Lidera la estrategia empresarial enfocada en modernización de procesos industriales y tecnologías de vanguardia.',
     },
     {
-      id: 'elena-rodriguez',
-      name: 'Elena Rodríguez',
-      position: 'Ingeniera Principal',
-      image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=400&auto=format&fit=crop',
-      bio: 'Experta en ingeniería de materiales y optimización de procesos.'
+      id: 'wilson',
+      name: 'Wilson',
+      position: 'Ingeniera Mecánica',
+      image: 'assets/images/Wilson.jpeg',
+      bio: 'Ingeniero Mecánico especializado en modelado 3D, diseño industrial y sistemas de tuberías. Transforma conceptos en proyectos técnicamente precisos y eficientes.'
     },
     {
-      id: 'david-kim',
-      name: 'David Kim',
-      position: 'Gerente de Producción',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop',
-      bio: 'Especialista en gestión de producción y control de calidad.'
+      id: 'sergio',
+      name: 'Sergio',
+      position: 'Ingeniero de Procesos',
+      image: 'assets/images/Sergio.jpeg',
+      bio: 'Ingeniero de Procesos especializado en ingeniería inversa y escáner 3D. Líder en transformación de componentes físicos a modelos digitales de alta precisión y optimización de diseños complejos.'
     }
   ]);
 
