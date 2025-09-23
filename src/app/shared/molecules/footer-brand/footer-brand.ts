@@ -9,7 +9,7 @@ import { SocialLinks } from '../social-links/social-links';
   styleUrl: './footer-brand.scss'
 })
 export class FooterBrand {
-  @Input() title: string = 'Proyección3DBIC';
+  @Input() title: string = 'Proyección 3D S.A.S. BIC';
   @Input() description: string = '';
   @Input() logo: string = 'assets/images/logos/P3D.png'; // ✅ Agregar logo
   @Input() logoAlt: string = 'Logo Proyección 3D';

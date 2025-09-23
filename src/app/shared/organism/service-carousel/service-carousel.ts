@@ -81,7 +81,7 @@ export class ServiceCarousel implements OnInit, OnDestroy {
       image: 'assets/images/service/Diagramas.png',
       features: [
         'Diagramas inteligentes con datos de instrumentación',
-        'Isométricos espoolable',
+        'Isométricos',
         'Listas de materiales (BOM) vinculadas',
       ],
       price: 'Cotización personalizada'
@@ -93,7 +93,7 @@ export class ServiceCarousel implements OnInit, OnDestroy {
       image: 'assets/images/service/Impresora-3D.jpg',
       features: [
         'Impresión en múltiples materiales',
-        'Acabados personalizados',
+        'Colores personalizados',
       ],
       price: 'Cotización personalizada'
     },
@@ -104,7 +104,7 @@ export class ServiceCarousel implements OnInit, OnDestroy {
       image: 'assets/images/service/Planos-estructurales.webp',
       features: [
         'Actualización de planos para ampliaciones',
-        'Documentación para licencias de construcción',
+        'Simulación de cargas',
         'Detalles de conexiones steel-to-steel',
       ],
       price: 'Cotización personalizada'

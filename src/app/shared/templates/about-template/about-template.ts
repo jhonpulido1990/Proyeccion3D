@@ -82,25 +82,26 @@ export class AboutTemplate {
     {
       id: 'clients',
       icon: 'bi-people',
-      value: '500',
+      value: '50',
       label: 'Clientes Satisfechos'
     },
     {
-      id: 'awards',
-      icon: 'bi-award',
-      value: '12',
-      label: 'Premios de la Industria'
+      id: 'clock',
+      icon: 'bi-clock',
+      value: '2000',
+      label: 'Horas de diseño'
     },
     {
       id: 'experience',
-      icon: 'bi-clock',
-      value: '10',
+      icon: 'bi-calendar-check',
+      //icon: 'bi-patch-check',
+      value: '3',
       label: 'Años de Experiencia'
     },
     {
       id: 'projects',
       icon: 'bi-lightbulb',
-      value: '2500',
+      value: '250',
       label: 'Proyectos Completados'
     }
   ]);
