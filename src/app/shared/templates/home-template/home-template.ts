@@ -33,7 +33,7 @@ export class HomeTemplate {
     description:
       'Somos especialistas en ingeniería inversa, modelado 3D y soluciones industriales. Ofrecemos escaneo láser, impresión 3D, análisis por elementos finitos (FEA) y diseño mecánico. Servicios a nivel nacional e internacional.',
     heroImage:
-      'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?q=80&w=1000&auto=format&fit=crop',
+      'assets/images/projects/HeaderProyeccion.png',
     buttons: [
       {
         label: 'Nuestros Servicios',
