@@ -61,6 +61,7 @@
     color: vars.color(gray6);
     margin: 0;
     line-height: 1.4;
+    white-space: pre-line;
 
     @include mixins.tablet-up() {
       font-size: vars.$font-size-text;

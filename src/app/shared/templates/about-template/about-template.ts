@@ -102,7 +102,8 @@ export class AboutTemplate {
       id: 'clock',
       icon: 'bi-clock',
       value: '2000',
-      label: 'Horas de diseño',
+      label:   `  Horas de
+      diseño `,
     },
     {
       id: 'experience',
